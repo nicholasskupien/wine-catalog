@@ -6,12 +6,13 @@ import Label from './Label/Label'
 import Logo from './Logo/Logo'
 import './Left.css'
 
+// Filters, Search Bar, Sort, Logo
 export class Left extends Component {
   render() {
     return (
       <div className='left-container'>
           <Logo></Logo>
-          <hr style={{margin: "0em"}}></hr>
+          <hr></hr>
           <div className='form-container'>
             <div className='form-wrapper'>
                 <Label label={"search"}></Label>

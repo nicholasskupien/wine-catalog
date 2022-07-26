@@ -13,7 +13,9 @@
  * @property CATEGORY_LABELS
  * @type {Object}
  */
-var CATEGORY_LABELS = {
+
+// CHANGE: var to const
+const CATEGORY_LABELS = {
     "RED": "Red Wine",
     "WHITE": "White Wine",
     "ROSE": "Rosé Wine",

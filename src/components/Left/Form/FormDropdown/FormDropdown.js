@@ -14,13 +14,14 @@ export class FormDropdown extends Component {
     return (
       <select name="sort" className="form-dropdown">
           {/* For each sort item, create a select option for up and down sort directions */}
-          {sortItems.map((sortItem) => (
-            <React.Fragment>
+          {sortItems.map((sortItem, index) => (
+            <React.Fragment key={index+'fragment'}>
                 {/* sort item with up arrow */}
-                <option value = {sortItem.toLowerCase + " up"}>{sortItem + " \u2191"}</option>
+                <option value = {sortItem.toLowerCase + " up"} key={index+'up'}>{sortItem + " \u2191"}</option>
                 {/* sort item with down arrow */}
-                <option value = {sortItem.toLowerCase + " down"}>{sortItem + " \u2193"}</option>
-                <hr></hr>
+                <option value = {sortItem.toLowerCase + " down"} key={index+'down'}>{sortItem + " \u2193"}</option>
+                {/* This throws an error and is generally not accepted in select tags */}
+                <hr key={index+'hr'}></hr>
             </React.Fragment>
           ))}
       </select>

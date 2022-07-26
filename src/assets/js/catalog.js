@@ -8,7 +8,11 @@
  * @global
  * @property Catalog {Object<CatalogItem>}
  */
-var Catalog = {
+
+// CHANGED Added this import. How else could I do this?
+import CatalogItem from './catalogItem';
+
+var catalog = {
     "431923": new CatalogItem("431923", "ROSE", "Rose delle Venezie IGT 11 Minutes Pasqua 2016", "750 mL bottle", "$20.15", "Italy", "Pasqua Vigneti E Cantine S.P.A"),
     "433333": new CatalogItem("433333", "ROSE", "Dona Isidora Carmenere Rose 2015", "750 mL bottle", "$9.00", "Chile", "Sociedad Vitivinicola Siete Tazas L"),
     "434885": new CatalogItem("434885", "ROSE", "Enclos des Anges Rosé AOP Corse Calvi 2016", "750 mL bottle", "$35.15", "France", "Gaec Enclos Des Anges"),
@@ -136,3 +140,5 @@ var Catalog = {
     "609701": new CatalogItem("609701", "SPECIALTY", "Muskoka Lakes Cranberry Wine", "750 mL bottle", "$16.95", "Canada", "Muskoka Lakes Winery"),
     "609719": new CatalogItem("609719", "SPECIALTY", "Muskoka Lakes Cranberry Blueberry Wine", "750 mL bottle", "$16.95", "Canada", "Muskoka Lakes Winery")
 };
+
+export default catalog;

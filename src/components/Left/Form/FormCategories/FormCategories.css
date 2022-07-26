@@ -1,7 +1,23 @@
 .form-category {
     padding: .75em;
+    margin-bottom: 0.25em;
     position: relative;
     left: -.75em;
-    background-color: antiquewhite;
     border-radius: .3em;
+}
+
+.form-category-deselected{
+    font-weight: 500;
+    background-color: none;
+    color: rgb(180, 180, 180);
+}
+
+.form-category-deselected:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+.form-category-selected {
+    font-weight: 700;
+    background-color: rgb(1, 137, 168);
+    color: rgb(121, 227, 253);
 }

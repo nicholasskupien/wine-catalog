@@ -34,3 +34,5 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
 
     /* TODO: Implement additional helpers here */
 }
+
+export default CatalogItem;
