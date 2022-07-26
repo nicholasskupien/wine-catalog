@@ -1,3 +1,4 @@
+import React from 'react';
 import Left from './components/Left/Left';
 import './App.css';
 
