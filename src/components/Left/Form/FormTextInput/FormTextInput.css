@@ -1,0 +1,8 @@
+.form-text-input{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: .3em;
+    border: none;
+    padding: .5em;
+    font-size: 1em;
+}

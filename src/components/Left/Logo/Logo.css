@@ -1,0 +1,46 @@
+.logo-container{
+    width: 100%;
+    height: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* keep logo container from shrinking when resizing vertically. Filters will scroll */
+    flex-shrink: 0;
+}
+
+.logo-wrapper{
+    width: 4em;
+    height: 4em;
+    border-radius: 4em;
+    border: 0.2em solid rgb(180, 180, 180);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.logo-wrapper img{
+    width: 70%;
+}
+
+.logo-heading{
+    font-weight: 900;
+    color: white;
+    display: inline-block;
+    margin: .5em 0em 0em 0em;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.logo-subheading{
+    margin: none;
+    margin: .1em 0em 0em 0em;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    color: rgb(180, 180, 180);
+    font-weight: 700;
+    font-size: 1em;
+    ;
+
+
+}

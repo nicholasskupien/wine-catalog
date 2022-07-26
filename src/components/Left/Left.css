@@ -1,0 +1,25 @@
+.left-container{
+    width: 20em;
+    height: 100%;
+    background-color: rgb(86, 86, 86);
+    flex-shrink: 0;
+    /* column oriented flex for left container to scroll the filters when the screen is small */
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container hr {
+    border: solid 0.1em rgb(76,76,76);
+    margin: 0em;
+}
+
+.form-container{
+    padding: 1.5em;
+    /* this container will shrink due to it's parent (.left-container) flex. Scroll when it shrinks */
+    overflow-y: auto;
+    height: 100%;
+}
+
+.form-wrapper{
+    margin-bottom: 1.75em;
+}

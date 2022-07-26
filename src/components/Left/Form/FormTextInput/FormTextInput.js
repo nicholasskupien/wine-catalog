@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import './FormTextInput.css'
 
 export class FormTextInput extends Component {
   render() {
     return (
-      <div>FormTextInput</div>
+      <input type="text" className="form-text-input" placeholder='Start typing a wine name...'></input>
     )
   }
 }

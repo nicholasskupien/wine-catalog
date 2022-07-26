@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import './Label.css'
 
 export class Label extends Component {
   render() {
     return (
-      <div>Label</div>
+      <label className='form-label'>{this.props.label.toUpperCase()}</label>
     )
   }
 }

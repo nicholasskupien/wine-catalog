@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './FormDropdown.css'
 
 export class FormDropdown extends Component {
   
@@ -8,15 +9,17 @@ export class FormDropdown extends Component {
     const sortItems = ["Name", "Category", "Volume", "Price", "Country", "Producer"];
     
     // could simplify this further
-    const sortDirection = ["up", "down"];
+    // const sortDirection = ["up", "down"];
 
     return (
-      <select name="sort" id="sort" style={{width: "100%"}}>
+      <select name="sort" className="form-dropdown">
           {/* For each sort item, create a select option for up and down sort directions */}
           {sortItems.map((sortItem) => (
             <React.Fragment>
-                <option value = {sortItem + "up"}>{sortItem + "&uarr;"}</option>
-                <option value = {sortItem + "down"}>{sortItem + " &darr;"}</option>
+                {/* sort item with up arrow */}
+                <option value = {sortItem.toLowerCase + " up"}>{sortItem + " \u2191"}</option>
+                {/* sort item with down arrow */}
+                <option value = {sortItem.toLowerCase + " down"}>{sortItem + " \u2193"}</option>
                 <hr></hr>
             </React.Fragment>
           ))}

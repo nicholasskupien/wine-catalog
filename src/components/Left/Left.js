@@ -4,21 +4,27 @@ import FormDropdown from './Form/FormDropdown/FormDropdown'
 import FormTextInput from './Form/FormTextInput/FormTextInput'
 import Label from './Label/Label'
 import Logo from './Logo/Logo'
+import './Left.css'
 
 export class Left extends Component {
   render() {
     return (
-      <div style={{width: "20em"}}>
+      <div className='left-container'>
           <Logo></Logo>
-          <hr></hr>
-          <Label></Label>
-          <FormTextInput></FormTextInput>
-          <br></br>
-          <Label></Label>
-          <FormDropdown></FormDropdown>
-          <br></br>
-          <Label></Label>
-          <FormCategories></FormCategories>
+          <hr style={{margin: "0em"}}></hr>
+          <div className='form-container'>
+            <div className='form-wrapper'>
+                <Label label={"search"}></Label>
+                <FormTextInput></FormTextInput>
+            </div>
+            <div className='form-wrapper'>
+                <Label label={"sort by"}></Label>
+                <FormDropdown></FormDropdown>
+            <div className='form-wrapper'></div>
+                <Label label={"category"}></Label>
+                <FormCategories></FormCategories>
+            </div>
+          </div>
       </div>
     )
   }
