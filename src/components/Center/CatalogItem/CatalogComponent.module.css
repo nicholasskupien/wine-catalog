@@ -1,0 +1,7 @@
+.CatalogComponent{
+    height: 10em;
+    width: 8em;
+    margin: 2em;
+    background-color: white;
+    flex-shrink: 0;
+}
