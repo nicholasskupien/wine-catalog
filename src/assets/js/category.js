@@ -30,3 +30,5 @@ export const CATEGORY_LABELS = {
 };
 
 export const ALL_CATEGORY = "ALL"
+
+export const DEFAULT_CATEGORY = ALL_CATEGORY;

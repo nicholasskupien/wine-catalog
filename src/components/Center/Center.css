@@ -5,6 +5,10 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    padding: 3em 6em 3em 6em;
+    padding: 3em 4em 3em 4em;
     gap: 4em;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: flex-start;
 }

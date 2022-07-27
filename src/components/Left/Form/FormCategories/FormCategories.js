@@ -3,7 +3,7 @@ import styles from './FormCategories.module.css'
 
 // USAGE
 // props.category: 2D array with [0] index containing the enum value of the category, and [1] index containing the localized value
-// props.onCategoryChange: change handler. clicking on a category will pass the [0] index of category (enum value) to the change handler
+// props.onCategoryChange: Change handler. clicking on a category will pass the [0] index of category (enum value) to the change handler
 
 function FormCategories(props) {
 
