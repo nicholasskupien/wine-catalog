@@ -1,23 +1,28 @@
 import React, { Component } from 'react'
-import './FormCategories.css'
+import styles from './FormCategories.module.css'
+import CATEGORY_LABELS from '../../../../assets/js/category';
+import { setCategory } from '../../../../features/catalog/catalogSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
-export class FormCategories extends Component {
-  render() {
+function FormCategories() {
+  const dispatch = useDispatch();
 
-    // \u0341 for e with upward accent
-    const categories = ["All", "Red Wine", "White Wine", "Rose\u0341 Wine", "Champagne", "Sparkling Wine", "Dessert Wine", "Icewine", "Fortified Wine", "Specialty Wine"];
-    var selected = "All";
+  const categories = useSelector(state => state.catalog.categories);
+  var selected = useSelector(state => state.catalog.selectedCategory);
 
-    return (
-      <React.Fragment>
-        {categories.map((category, index) => (
-          <React.Fragment key={index+'fragment'}>
-              <div key={index+'category'} className={category == selected ? "form-category form-category-selected" : "form-category form-category-deselected"}>{category}</div>
-          </React.Fragment>
-        ))}
-      </React.Fragment>
-    )
-  }
+  console.log(selected);
+
+  return (
+    <React.Fragment>
+      {categories.map((category, index) => (
+        // category[0] is the enum, all caps category
+        // category[1] is the localized category
+        <React.Fragment key={index+'fragment'}>
+            <button onClick={() => dispatch(setCategory(category[0]))} key={index+'category'} className={category[0] == selected ? `${styles.formCategory}  ${styles.formCategorySelected}` : `${styles.formCategory} ${styles.formCategoryDeselected}`}>{category[1]}</button>
+        </React.Fragment>
+      ))}
+    </React.Fragment>
+  )
 }
 
 export default FormCategories

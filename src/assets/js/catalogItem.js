@@ -22,6 +22,7 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
     var price = price;
     var country = country;
     var producer = producer;
+    var hidden = false;
 
     // simple getter methods
     this.getId = function() { return id; }
@@ -31,7 +32,6 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
     this.getPrice = function() { return parseFloat(price.slice(1)); }
     this.getCountry = function() { return country; }
     this.getProducer = function() { return producer; }
-
     /* TODO: Implement additional helpers here */
 }
 

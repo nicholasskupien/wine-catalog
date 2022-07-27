@@ -16,6 +16,8 @@
 
 // CHANGE: var to const
 const CATEGORY_LABELS = {
+    // ALL must appear first in this list to be selected by default
+    "ALL": "All",
     "RED": "Red Wine",
     "WHITE": "White Wine",
     "ROSE": "Rosé Wine",
@@ -26,3 +28,5 @@ const CATEGORY_LABELS = {
     "FORTIFIED": "Fortified Wines",
     "SPECIALTY": "Specialty Wines"
 };
+
+export default CATEGORY_LABELS;
