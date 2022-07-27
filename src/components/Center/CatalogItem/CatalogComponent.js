@@ -11,11 +11,11 @@ function importAll(r) {
 
 function CatalogComponent(props) {
 
-  // const images = importAll(require.context('../../../assets/images/catalog', false, '/\.png/'));
+  const images = importAll(require.context('../../../assets/images/catalog', false, /\.png/));
 
   return (
     <div className={styles.CatalogComponent}>
-      {/* <img src={images[props.item.id+".png"]}></img> */}
+      <img src={images[props.item.id+".png"]}></img>
     </div>  
   )
 }

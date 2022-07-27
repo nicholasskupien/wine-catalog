@@ -5,13 +5,5 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-
-}
-
-.catalog-item {
-    height: 10em;
-    width: 8em;
-    margin: 2em;
-    background-color: white;
-    flex-shrink: 0;
+    padding: 1em 3em 1em 3em;
 }
