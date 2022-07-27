@@ -12,9 +12,7 @@ function Center() {
   return (
     <div className='center-container'>
       {catalog.map(item => (
-        <React.Fragment key={item.id+'fragment'}>
-          <CatalogComponent item={item}></CatalogComponent>
-        </React.Fragment>
+        (item.hiddenCategory || item.hiddenSearch) ? "" : <CatalogComponent key={item.id} item={item}></CatalogComponent>
       ))}
     </div>
   )

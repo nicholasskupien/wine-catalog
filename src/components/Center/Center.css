@@ -5,5 +5,6 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    padding: 1em 3em 1em 3em;
+    padding: 3em 6em 3em 6em;
+    gap: 4em;
 }

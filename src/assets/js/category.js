@@ -14,8 +14,8 @@
  * @type {Object}
  */
 
-// CHANGE: var to const
-const CATEGORY_LABELS = {
+// CHANGED: var to const
+export const CATEGORY_LABELS = {
     // ALL must appear first in this list to be selected by default
     "ALL": "All",
     "RED": "Red Wine",
@@ -29,4 +29,4 @@ const CATEGORY_LABELS = {
     "SPECIALTY": "Specialty Wines"
 };
 
-export default CATEGORY_LABELS;
+export const ALL_CATEGORY = "ALL"

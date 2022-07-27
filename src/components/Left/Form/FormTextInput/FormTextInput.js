@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import './FormTextInput.css'
 
-export class FormTextInput extends Component {
-  render() {
+// USAGE
+// props.placeholder: localized string containing hint text for the input
+// props.onChange: Change handler. Will pass the value of the field input whenever it is changed to the handler.
+
+function FormTextInput(props) {
     return (
-      <input type="text" className="form-text-input" placeholder='Start typing a wine name...'></input>
+      <input onInput={(e) => props.onChange(e.target.value)} type="text" className="form-text-input" placeholder={props.placeholder}></input>
     )
-  }
 }
 
 export default FormTextInput

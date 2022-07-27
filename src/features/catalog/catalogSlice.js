@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import catalogListJson from '../../assets/js/catalog';
 import CatalogItem from '../../assets/js/catalogItem';
-import CATEGORY_LABELS from '../../assets/js/category';
+import {CATEGORY_LABELS, ALL_CATEGORY} from '../../assets/js/category';
+import { SORT_BY, SORT_DIR } from '../../assets/js/sort';
 
 // Redux Toolkit allows us to write "mutating" logic in reducers. It
 // doesn't actually mutate the state because it uses the Immer library,
@@ -25,24 +26,67 @@ export const catalogSlice = createSlice({
         price: catalogObject[1].getPrice(),
         category: catalogObject[1].getCategory(),
         producer: catalogObject[1].getProducer(),
-        hidden: false
+        hiddenCategory: false,
+        hiddenSearch: false,
         })
     }),
-    categories: Object.entries(CATEGORY_LABELS),
+    // categories: Object.entries(CATEGORY_LABELS),
     // set selected category to the first category and choose enum label (this is 'ALL')
-    selectedCategory: Object.entries(CATEGORY_LABELS)[0][0]
+    selectedCategory: ALL_CATEGORY
   },
   reducers: {
     sort: (state, action) => {
-      
+      console.log(action);
     },
     setCategory: (state, action) => {
-        console.log(state.categories);
-        console.log(state, action);
+        // console.log(state.categories);
+        // console.log(state, action);
         state.selectedCategory = action.payload;
+        state.catalog = state.catalog.map((catalog) => {
+            var hidden = true;
+
+            // if the filtered catalog matches the wine in the catalog then don't hide the wine item
+            // OR if the current category is the 'All Category' then regardless we show everything
+            if(catalog.category == state.selectedCategory || state.selectedCategory == ALL_CATEGORY){
+                hidden = false;
+            }   
+
+            return ({
+                id: catalog.id,
+                category: catalog.category,
+                name: catalog.name,
+                volume: catalog.volume,
+                price: catalog.price,
+                category: catalog.category,
+                producer: catalog.producer,
+                hiddenCategory: hidden,
+                hiddenSearch: catalog.hiddenSearch
+                })
+        });
     },
     search: (state, action) => {
-      state.value += action.payload
+        console.log(action.payload);
+        state.catalog = state.catalog.map((catalog) => {
+            var hidden = true;
+
+            // if the name of the wine in the catalog contains the search string then flag that item to be shown
+            // OR if the search string is null then don't filter anything, so make sure nothing is hidden
+            if(catalog.name.toLowerCase().includes(action.payload.toLowerCase()) || action.payload == ""){
+                hidden = false;
+            }   
+
+            return ({
+                id: catalog.id,
+                category: catalog.category,
+                name: catalog.name,
+                volume: catalog.volume,
+                price: catalog.price,
+                category: catalog.category,
+                producer: catalog.producer,
+                hiddenCategory: catalog.hiddenCategory,
+                hiddenSearch: hidden,
+                })
+        });
     }
   }
 })
