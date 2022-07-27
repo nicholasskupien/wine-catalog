@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import catalogListJson from '../../assets/js/catalog';
-import CatalogItem from '../../assets/js/catalogItem';
-import {CATEGORY_LABELS, ALL_CATEGORY, DEFAULT_CATEGORY} from '../../assets/js/category';
-import { SORT_BY, SORT_DIR, DEFAULT_SORT, sortStrings, sortNumbers } from '../../assets/js/sort';
+import catalogListJson from '../../constants/catalog';
+import CatalogItem from '../../constants/catalogItem';
+import {CATEGORY_LABELS, ALL_CATEGORY, DEFAULT_CATEGORY} from '../../constants/category';
+import { SORT_BY, SORT_DIR, DEFAULT_SORT, sortStrings, sortNumbers } from '../../constants/sort';
 
 // Redux Toolkit allows us to write "mutating" logic in reducers. It
 // doesn't actually mutate the state because it uses the Immer library,

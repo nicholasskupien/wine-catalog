@@ -7,8 +7,8 @@ import Logo from './Logo/Logo'
 import './Left.css'
 import { setCategory, search, sort } from '../../features/catalog/catalogSlice'
 import { useSelector, useDispatch } from 'react-redux';
-import { CATEGORY_LABELS } from '../../assets/js/category'
-import { SORT_BY, SORT_DIR } from '../../assets/js/sort'
+import { CATEGORY_LABELS } from '../../constants/category'
+import { SORT_BY, SORT_DIR } from '../../constants/sort'
 
 // Filters, Search Bar, Sort, Logo
 function Left() {

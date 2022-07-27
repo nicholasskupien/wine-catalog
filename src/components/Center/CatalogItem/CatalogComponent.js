@@ -15,7 +15,7 @@ function CatalogComponent(props) {
 
   return (
     <div className={styles.CatalogComponent}>
-      <button className={styles.ButtonAddToCart}><span>+</span></button>
+      <button onClick={() => props.onClick(props.item)} className={styles.ButtonAddToCart}><span>+</span></button>
       <span className={styles.Price}>{"$" + props.item.price}</span>
       <div className={styles.NameOverlay}>{props.item.name}</div>
       <img src={images[props.item.id+".png"]}></img>
