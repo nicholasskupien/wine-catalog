@@ -9,11 +9,25 @@
     overflow: hidden;
     border-radius: 0.3em;
     box-shadow: $shadow;
+    cursor: pointer;
+    filter: brightness(0.9);
+    transition: filter $transition;
+
 }
 
 .CatalogComponent img {
     width: 70%;
     padding: 20% 15% 15% 15%;
+    transform: scale(0.9);    
+    transition: transform $transition;
+}
+
+.CatalogComponent:hover {
+    filter: brightness(1);
+}
+
+.CatalogComponent:hover img {
+    transform: scale(1);    
 }
 
 .ButtonAddToCart{
@@ -31,9 +45,10 @@
     font-weight: 900;
     color: $gray-180;
     cursor: pointer;
+    transition: color $transition;
 }
 
-.ButtonAddToCart :hover{
+.CatalogComponent:hover .ButtonAddToCart span{
     color: $gray-80;
 }
 

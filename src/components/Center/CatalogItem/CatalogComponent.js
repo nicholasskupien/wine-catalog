@@ -17,13 +17,15 @@ function CatalogComponent(props) {
   const images = importAll(require.context('../../../assets/images/catalog', false, /\.png/));
 
   return (
-    <div className={styles.CatalogComponent}>
-      <button onClick={() => props.onClick(props.item)} className={styles.ButtonAddToCart}><span>+</span></button>
-      <span className={styles.Price}>{"$" + props.item.price}</span>
-      <div className={styles.NameOverlay}>{props.item.name}</div>
-      {/* load image with file name equal to item id */}
-      <img src={images[props.item.id+".png"]}></img>
-    </div>  
+    <a onClick={() => props.onClick(props.item)}>
+      <div className={styles.CatalogComponent}>
+        <button className={styles.ButtonAddToCart}><span>+</span></button>
+        <span className={styles.Price}>{"$" + props.item.price}</span>
+        <div className={styles.NameOverlay}>{props.item.name}</div>
+        {/* load image with file name equal to item id */}
+        <img src={images[props.item.id+".png"]}></img>
+      </div>  
+    </a>
   )
 }
 
