@@ -52,7 +52,7 @@ function ShoppingCart() {
         });
     }
 
-    console.log(cartAggregated, cartAggregated.length);
+    // console.log(cartAggregated, cartAggregated.length);
 
 
     const [shoppingCartOpen, setShoppingCartOpen] = useState(0);
@@ -81,6 +81,7 @@ function ShoppingCart() {
                     {/* loop through aggregated cart and generate the table */}
                     {cartAggregated.map(item => (
                         <tr key={item.id}>
+                            {/* Just noticed the validate dom nesting here */}
                             <a onClick={() => dispatch(removeFromCart(item.id))} className={styles.cartRemove}><td style={{fontWeight: "900"}}>{ICON_CLOSE}</td></a>
                             <td>{item.quantity}</td>
                             <td style={{textAlign: "left"}}>{item.description}</td>
