@@ -39,11 +39,13 @@ export const catalogSlice = createSlice({
   reducers: {
 
     // Sort the catalog based on the field to 'sortBy' and the 'sortDirection' to sort ascending or descending
-    // SORT_BY and SORT_DIR contain the allowed inputs
+    // action.payload.sortDirection: SORT_DIR contains the allowed inputs
+    // action.payload.sortBy: SORT_BY contains the allowed inputs
     sort: (state, action) => {
       console.log(action);
 
       switch(action.payload.sortBy) {
+        // TODO use SORT_BY enums for the switch statement
         case "NAME":
             state.catalog = state.catalog.sort((a, b) => {return sortStrings(a.name, b.name, action.payload.sortDirection)});
             break;
@@ -63,7 +65,7 @@ export const catalogSlice = createSlice({
             state.catalog = state.catalog.sort((a, b) => {return sortStrings(a.producer, b.producer, action.payload.sortDirection)});
             break;
         default:
-            //do nothing
+            //do nothing, no sort provided
         }
     },
 

@@ -11,6 +11,8 @@ function ShoppingCart() {
 
     const cart = useSelector(state => state.cart.cart);
 
+    // TODO make these more 'private'? hidden from user
+    var totalCartPrice = 0;
     var cartAggregated = [];
 
     // create an 'aggregated' cart with totals for quantity and cost based off the cart state
@@ -30,9 +32,6 @@ function ShoppingCart() {
                 cartAggregated[itemIndex].quantity += 1;
                 // add the cost of the item to the total price to maintain the running sum
                 cartAggregated[itemIndex].totalPrice += cartAggregated[itemIndex].unitPrice;
-                // round the total sum (TODO verify rounding 0.005 edge cases)
-                cartAggregated[itemIndex].totalPrice = parseFloat(cartAggregated[itemIndex].totalPrice).toFixed(2);
-
                 // console.log("updated ", cartAggregated[item.id]);
             }
             // if the item does not exist in the aggregated cart then create a new item with default values
@@ -47,6 +46,9 @@ function ShoppingCart() {
                 cartAggregated.push(newItem);
                 // console.log("pushed ", newItem);
             }
+
+            // update the total price of the cart
+            totalCartPrice += item.price;
         });
     }
 
@@ -60,8 +62,11 @@ function ShoppingCart() {
             <button onClick={() => setShoppingCartOpen(!shoppingCartOpen)} className={styles.toggleCartButton}>
                 <span>{shoppingCartOpen?ICON_RIGHT_CARET:ICON_LEFT_CARET}</span>
             </button>
+            <div className={styles.cartTitle}>Shopping Cart</div>
             <div className={styles.cartHeader}></div>
+            {/* shopping cart table */}
             <table className={styles.cartTable}>
+                {/* headers */}
                 <thead>
                     <tr>
                         <th></th>
@@ -71,20 +76,24 @@ function ShoppingCart() {
                         <th>Amount</th>
                     </tr>
                 </thead>
+                {/* table body */}
                 <tbody>
-                {cartAggregated.map(item => (
-                    <tr key={item.id}>
-                        <td style={{fontWeight: "900"}}>{ICON_CLOSE}</td>
-                        <td>{item.quantity}</td>
-                        <td style={{textAlign: "left"}}>{item.description}</td>
-                        <td>{"$" + item.unitPrice}</td>
-                        <td>{"$" + item.totalPrice}</td>
-                    </tr>
-                ))}
+                    {/* loop through aggregated cart and generate the table */}
+                    {cartAggregated.map(item => (
+                        <tr key={item.id}>
+                            <a onClick={() => dispatch(removeFromCart(item.id))} className={styles.cartRemove}><td style={{fontWeight: "900"}}>{ICON_CLOSE}</td></a>
+                            <td>{item.quantity}</td>
+                            <td style={{textAlign: "left"}}>{item.description}</td>
+                            {/* round the prices to 2 decimal points. Fixes floating point precision errors */}
+                            <td>{"$" + parseFloat(item.unitPrice).toFixed(2)}</td>
+                            <td>{"$" + parseFloat(item.totalPrice).toFixed(2)}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
             <div className={styles.cartFooter}>
-
+                <div className={styles.cartTotal}>{"Total Amount"}</div>
+                <div className={styles.cartTotal}>{"$" + parseFloat(totalCartPrice).toFixed(2)}</div>
             </div>
         </div>
     )

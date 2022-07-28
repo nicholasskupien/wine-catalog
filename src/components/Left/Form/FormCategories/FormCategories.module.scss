@@ -1,3 +1,5 @@
+@import '../../../../constants/styles/globals';
+
 .formCategory {
     padding: .75em;
     margin-bottom: 0.25em;
@@ -11,11 +13,11 @@
 .formCategoryDeselected{
     font-weight: 500;
     background-color: none;
-    color: rgb(180, 180, 180);
+    color: $gray-180;
 }
 
 .formCategoryDeselected:hover {
-    background-color: rgb(100, 100, 100);
+    background-color: $gray-100;
 }
 
 .formCategorySelected {

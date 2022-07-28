@@ -13,12 +13,14 @@ export const shoppingCartSlice = createSlice({
 
   reducers: {
 
+    // action.payload is one item with all fields from the catalog
     addToCart: (state, action) => {
         const item = action.payload;
         return {cart: [...state.cart, item]};
     },
+    // action.payload is id of the item to remove
     removeFromCart: (state, action) => {
-        return state;
+        // TODO Impliment remove from cart
     }
   }
 })

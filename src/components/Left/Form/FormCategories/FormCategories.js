@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './FormCategories.module.css'
+import styles from './FormCategories.module.scss'
 
 // USAGE
 // props.category: 2D array with [0] index containing the enum value of the category, and [1] index containing the localized value

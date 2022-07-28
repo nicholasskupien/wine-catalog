@@ -1,3 +1,5 @@
+@import '../../../constants/styles/globals';
+
 .logo-container{
     width: 100%;
     height: 12em;
@@ -13,7 +15,7 @@
     width: 4em;
     height: 4em;
     border-radius: 4em;
-    border: 0.2em solid rgb(180, 180, 180);
+    border: 0.2em solid $gray-180;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -37,7 +39,7 @@
     margin: .1em 0em 0em 0em;
     text-transform: uppercase;
     letter-spacing: .3em;
-    color: rgb(180, 180, 180);
+    color: $gray-180;
     font-weight: 700;
     font-size: 1em;
     ;
