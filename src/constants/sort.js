@@ -35,15 +35,14 @@ export const DEFAULT_SORT = {
 * @param direction {String} direction to sort. "ASC" for ascending or anything else for descending.
 * Reference: https://stackoverflow.com/questions/19259233/sorting-json-by-specific-element-alphabetically
 */
-
 export function sortStrings(a, b, direction) {
     a = a.toLowerCase();
     b = b.toLowerCase();
 
-    let dir = (direction == "ASC") ? 1 : -1;
+    const dir = (direction == "ASC") ? 1 : -1;
   
     return (a < b) ? -dir : (a > b) ? dir : 0;
-  }
+}
 
 /** 
 * @function sortStrings numeric sort, ignoring any text that is not a digit
@@ -53,12 +52,12 @@ export function sortStrings(a, b, direction) {
 */
 export function sortNumbers(a, b, direction) {
     // regex match on digits (0-9) and ignore everything else
-    a = parseFloat(a.toString().replace(/[A-Za-z_$]/g,''));
+    a = parseFloat(a.toString().replace(/[A-Za-z_$]/g,'')); // try \s for regex
     b = parseFloat(b.toString().replace(/[A-Za-z_$]/g,''));
 
     // console.log(a,b);
 
-    let dir = (direction == "ASC") ? 1 : -1;
+    const dir = (direction == "ASC") ? 1 : -1;
 
     return (a < b) ? -dir : (a > b) ? dir : 0;
 }

@@ -24,8 +24,7 @@ export const catalogSlice = createSlice({
         name: catalogObject[1].getName(),
         volume: catalogObject[1].getVolume(),
         price: catalogObject[1].getPrice(),
-        category: catalogObject[1].getCategory(),
-        country: catalogObject[1].getCategory(),
+        country: catalogObject[1].getCountry(),
         producer: catalogObject[1].getProducer(),
         hiddenCategory: false,
         hiddenSearch: false,
@@ -70,7 +69,7 @@ export const catalogSlice = createSlice({
     },
 
     // Set the category to filter the catalog by
-    // CATEGORY_LABELS contains the allowed inputs
+    // action.payload: CATEGORY_LABELS contains the allowed inputs
     setCategory: (state, action) => {
         // console.log(state.categories);
         // console.log(state, action);

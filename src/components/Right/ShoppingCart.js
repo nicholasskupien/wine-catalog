@@ -82,7 +82,7 @@ function ShoppingCart() {
                     {cartAggregated.map(item => (
                         <tr key={item.id}>
                             {/* Just noticed the validate dom nesting here */}
-                            <a onClick={() => dispatch(removeFromCart(item.id))} className={styles.cartRemove}><td style={{fontWeight: "900"}}>{ICON_CLOSE}</td></a>
+                            <td style={{fontWeight: "900"}}><a onClick={() => dispatch(removeFromCart(item.id))} className={styles.cartRemove}>{ICON_CLOSE}</a></td>
                             <td>{item.quantity}</td>
                             <td style={{textAlign: "left"}}>{item.description}</td>
                             {/* round the prices to 2 decimal points. Fixes floating point precision errors */}
