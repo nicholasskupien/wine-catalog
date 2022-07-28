@@ -1,0 +1,94 @@
+@import "../../constants/styles/globals";
+
+
+$shopping-cart-width: 40em;
+$toggle-cart-button-width: 2.5em;
+
+$this-border-small-width: 0.08em;
+
+.shoppingCartContainer{
+    width: $shopping-cart-width;
+    height: 100%;
+    position: absolute;
+    right: -$shopping-cart-width;
+    top: 0em;
+    background-color: $gray-50;
+    box-shadow: rgb(0 0 0 / 50%) 0px 2px 15px 0px;
+
+    // Simulate border with box shadow to eliminate lots of issues with width calculations
+    box-shadow: $gray-80 $border-small-width 0em 0em 0em inset;
+
+    // Transition for opening and closing the cart
+    transition: right 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0s;
+}
+
+.toggleCartButton{
+    width: $toggle-cart-button-width;
+    height: $toggle-cart-button-width;
+    left: -$toggle-cart-button-width ;
+    position: absolute;
+    top: $toggle-cart-button-width;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: $gray-80;
+    color: white;
+
+    // Simulate shadow from shoppingCartContainer on this element
+    box-shadow: rgb(0 0 0 / 50%) -10px 0px 8px -8px inset;
+
+    cursor: pointer;
+}
+
+.toggleCartButton:hover{
+    background-color: $gray-70;
+}
+
+.toggleCartButton span{
+    font-size: $toggle-cart-button-width;
+    // A needed 'hack' to vertically center the text
+    line-height: 85%;
+}
+
+.cartTable{
+    width: 100%;
+    font-weight: 600;
+}
+
+.cartTable thead{
+    background-color: $gray-80;
+    font-weight: 800;
+}
+
+.cartTable th, td {
+    padding: 1em;
+    color: $gray-180;
+}
+
+.cartTable tr:nth-child(even){
+    background-color: $gray-60;
+}
+
+.cartTable td{
+    text-align: center;
+}
+
+.cartHeader{
+    height: 6em;
+    width: 100%;
+    background-color: $gray-80;
+}
+
+.cartFooter{
+    height: 5em;
+    width: 100%;
+    position: absolute;
+
+    // so that the cart 'border' is not overlapped by this element
+    left: $border-small-width;
+
+    bottom: 0em;
+    background-color: $gray-80;
+    
+    box-shadow: $blue 0em ($border-medium-width) 0em 0em inset;
+}

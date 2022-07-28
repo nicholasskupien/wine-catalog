@@ -3,14 +3,17 @@ import styles from './CatalogComponent.module.scss'
 
 
 // Taken from https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
+// Import all images from a folder
 function importAll(r) {
   let images = {};
   r.keys().map(item => { images[item.replace('./', '')] = r(item); });
   return images;
 }
 
+// Wine Catalog Component
 function CatalogComponent(props) {
 
+  //Import all images from the folder
   const images = importAll(require.context('../../../assets/images/catalog', false, /\.png/));
 
   return (
