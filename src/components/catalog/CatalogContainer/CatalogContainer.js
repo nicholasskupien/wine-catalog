@@ -1,11 +1,11 @@
 import React from "react";
-import "./Center.scss";
+import "./CatalogContainer.scss";
 import { useSelector, useDispatch } from "react-redux";
-import CatalogComponent from "./CatalogItem/CatalogComponent";
-import { addToCart } from "../../features/catalog/shoppingCartSlice";
+import CatalogComponent from "../CatalogComponent/CatalogComponent";
+import { addToCart } from "../../../features/catalog/shoppingCartSlice";
 
 // Wine Catalog Component Container
-function Center() {
+function CatalogContainer() {
   const dispatch = useDispatch();
 
   const catalog = useSelector((state) => state.catalog.catalog);
@@ -32,4 +32,4 @@ function Center() {
   );
 }
 
-export default Center;
+export default CatalogContainer;

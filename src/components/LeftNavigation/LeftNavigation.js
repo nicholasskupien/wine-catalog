@@ -1,17 +1,17 @@
 import React from "react";
-import FormCategories from "./Form/FormCategories/FormCategories";
-import FormDropdown from "./Form/FormDropdown/FormDropdown";
-import FormTextInput from "./Form/FormTextInput/FormTextInput";
-import Label from "./Label/Label";
-import Logo from "./Logo/Logo";
-import "./Left.css";
+import Categories from "../form/Categories/Categories";
+import Dropdown from "../form/Dropdown/Dropdown";
+import TextInput from "../form/TextInput/TextInput";
+import Label from "../form/Label/Label";
+import Logo from "../branding/Logo/Logo";
+import "./LeftNavigation.scss";
 import { setCategory, search, sort } from "../../features/catalog/catalogSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { CATEGORY_LABELS } from "../../constants/category";
 import { SORT_BY, SORT_DIR } from "../../constants/sort";
 
 // Filters, Search Bar, Sort, Logo
-function Left() {
+function LeftNavigation() {
   const dispatch = useDispatch();
 
   // Change handler to send new selected category to redux store when they are changed
@@ -55,29 +55,29 @@ function Left() {
       <div className="form-container">
         <div className="form-wrapper">
           <Label label={"search"}></Label>
-          <FormTextInput
+          <TextInput
             onChange={onSearchChange}
             placeholder={"Start typing a wine name..."}
-          ></FormTextInput>
+          ></TextInput>
         </div>
         <div className="form-wrapper">
           <Label label={"sort by"}></Label>
-          <FormDropdown
+          <Dropdown
             onChange={onSortChange}
             dropdownItems={dropdownItems}
             dropdownPayloads={dropdownPayloads}
-          ></FormDropdown>
+          ></Dropdown>
           <div className="form-wrapper"></div>
           <Label label={"category"}></Label>
-          <FormCategories
+          <Categories
             categories={categories}
             selected={selectedCategory}
             onCategoryChange={onCategoryChange}
-          ></FormCategories>
+          ></Categories>
         </div>
       </div>
     </div>
   );
 }
 
-export default Left;
+export default LeftNavigation;

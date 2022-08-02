@@ -1,15 +1,14 @@
 import React from "react";
-import Left from "./components/Left/Left";
-import Center from "./components/Center/Center";
+import LeftNavigation from "./components/LeftNavigation/LeftNavigation";
+import CatalogContainer from "./components/catalog/CatalogContainer/CatalogContainer";
 import "./App.css";
-import ShoppingCart from "./components/Right/ShoppingCart";
-// import catalogImages from './assets/images/catalog'
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 function App() {
   return (
     <div className="app-container">
-      <Left></Left>
-      <Center></Center>
+      <LeftNavigation></LeftNavigation>
+      <CatalogContainer></CatalogContainer>
       <ShoppingCart></ShoppingCart>
     </div>
   );

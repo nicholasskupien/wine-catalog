@@ -2,13 +2,13 @@
 /* eslint-disable react/prop-types */
 
 import React from "react";
-import styles from "./FormCategories.module.scss";
+import styles from "./Categories.module.scss";
 
 // USAGE
 // props.category: 2D array with [0] index containing the enum value of the category, and [1] index containing the localized value
 // props.onCategoryChange: Change handler. clicking on a category will pass the [0] index of category (enum value) to the change handler
 
-function FormCategories(props) {
+function Categories(props) {
   const categories = props.categories;
   var selected = props.selected;
 
@@ -35,4 +35,4 @@ function FormCategories(props) {
   );
 }
 
-export default FormCategories;
+export default Categories;

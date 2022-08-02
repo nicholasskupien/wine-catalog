@@ -2,14 +2,14 @@
 /* eslint-disable react/prop-types */
 
 import React from "react";
-import "./FormDropdown.css";
+import "./Dropdown.css";
 
 // USAGE
 // props.dropdownItems: Localized list of items to populate dropdown with
 // props.dropdownPayloads: List of payloads that correspond with dropdownItems. These two arrays must be the same length.
 // props.onChange: Change handler. When a dropdown item is selected the payload at the same index is sent to the change handler.
 
-function FormDropdown(props) {
+function Dropdown(props) {
   return (
     <select
       name="sort"
@@ -25,4 +25,4 @@ function FormDropdown(props) {
   );
 }
 
-export default FormDropdown;
+export default Dropdown;

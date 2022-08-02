@@ -2,13 +2,13 @@
 /* eslint-disable react/prop-types */
 
 import React from "react";
-import "./FormTextInput.css";
+import "./TextInput.css";
 
 // USAGE
 // props.placeholder: localized string containing hint text for the input
 // props.onChange: Change handler. Will pass the value of the field input whenever it is changed to the handler.
 
-function FormTextInput(props) {
+function TextInput(props) {
   return (
     <input
       onInput={(e) => props.onChange(e.target.value)}
@@ -19,4 +19,4 @@ function FormTextInput(props) {
   );
 }
 
-export default FormTextInput;
+export default TextInput;
