@@ -20,7 +20,9 @@ function LeftNavigation() {
   // Get category labels (enums) from file
   const categories = Object.entries(CATEGORY_LABELS);
   // Use redux to get the selected category. This will update
-  var selectedCategory = useSelector((state) => state.catalog.selectedCategory);
+  const selectedCategory = useSelector(
+    (state) => state.catalog.selectedCategory
+  );
 
   // Change handler to send sort selection to redux store when it is changed
   const onSortChange = (newSortCategory) => dispatch(sort(newSortCategory));

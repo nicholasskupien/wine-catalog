@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+
 /**********************************************************************
  * WARNING: YOU MAY NOT CHANGE ANY OF THE CODE IN THIS FILE.
  **********************************************************************
@@ -13,7 +14,7 @@
 // CHANGED Added this import. How else could I do this?
 import CatalogItem from './catalogItem';
 
-var catalog = {
+const catalog = {
     "431923": new CatalogItem("431923", "ROSE", "Rose delle Venezie IGT 11 Minutes Pasqua 2016", "750 mL bottle", "$20.15", "Italy", "Pasqua Vigneti E Cantine S.P.A"),
     "433333": new CatalogItem("433333", "ROSE", "Dona Isidora Carmenere Rose 2015", "750 mL bottle", "$9.00", "Chile", "Sociedad Vitivinicola Siete Tazas L"),
     "434885": new CatalogItem("434885", "ROSE", "Enclos des Anges Rosé AOP Corse Calvi 2016", "750 mL bottle", "$35.15", "France", "Gaec Enclos Des Anges"),

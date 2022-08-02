@@ -16,35 +16,35 @@
  */
 function CatalogItem(id, category, name, volume, price, country, producer) {
   // declare these as private variables
-  var id = id;
-  var category = category;
-  var name = name;
-  var volume = volume;
-  var price = price;
-  var country = country;
-  var producer = producer;
+  const _id = id;
+  const _category = category;
+  const _name = name;
+  const _volume = volume;
+  const _price = price;
+  const _country = country;
+  const _producer = producer;
 
   // simple getter methods
   this.getId = function () {
-    return id;
+    return _id;
   };
   this.getCategory = function () {
-    return category;
+    return _category;
   };
   this.getName = function () {
-    return name;
+    return _name;
   };
   this.getVolume = function () {
-    return volume;
+    return _volume;
   };
   this.getPrice = function () {
-    return parseFloat(price.slice(1));
+    return parseFloat(_price.slice(1));
   };
   this.getCountry = function () {
-    return country;
+    return _country;
   };
   this.getProducer = function () {
-    return producer;
+    return _producer;
   };
   /* TODO: Implement additional helpers here */
 }

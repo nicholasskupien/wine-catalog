@@ -10,7 +10,7 @@ import styles from "./Categories.module.scss";
 
 function Categories(props) {
   const categories = props.categories;
-  var selected = props.selected;
+  const selected = props.selected;
 
   // console.log(selected);
 

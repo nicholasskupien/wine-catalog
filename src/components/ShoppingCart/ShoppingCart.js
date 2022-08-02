@@ -25,7 +25,7 @@ function ShoppingCart() {
     //     a.set(b.id, (a.get(b.id) || 0) + 1), new Map);
 
     cart.forEach((item) => {
-      var itemIndex = cartAggregated.findIndex((i) => i.id === item.id);
+      const itemIndex = cartAggregated.findIndex((i) => i.id === item.id);
 
       // if the item added in the cart already exists in the aggregated cart then update values
       if (itemIndex != -1) {
@@ -38,7 +38,7 @@ function ShoppingCart() {
       }
       // if the item does not exist in the aggregated cart then create a new item with default values
       else {
-        var newItem = {
+        const newItem = {
           id: item.id,
           quantity: 1,
           description: item.name,
