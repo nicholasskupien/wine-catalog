@@ -5,6 +5,6 @@
  * to help in your implementation.
  */
 
- export const ICON_LEFT_CARET = "\u25C2";
- export const ICON_RIGHT_CARET = "\u25B8";
- export const ICON_CLOSE = "\u2715"
+export const ICON_LEFT_CARET = "\u25C2";
+export const ICON_RIGHT_CARET = "\u25B8";
+export const ICON_CLOSE = "\u2715";

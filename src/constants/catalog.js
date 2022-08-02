@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**********************************************************************
  * WARNING: YOU MAY NOT CHANGE ANY OF THE CODE IN THIS FILE.
  **********************************************************************

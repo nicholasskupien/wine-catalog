@@ -1,12 +1,17 @@
-import React, { Component } from 'react'
-import './Label.scss'
+// TODO work on props validation
+/* eslint-disable react/prop-types */
+
+import React, { Component } from "react";
+import "./Label.scss";
 
 export class Label extends Component {
   render() {
     return (
-      <label className='form-label'><h4>{this.props.label.toUpperCase()}</h4></label>
-    )
+      <label className="form-label">
+        <h4>{this.props.label.toUpperCase()}</h4>
+      </label>
+    );
   }
 }
 
-export default Label
+export default Label;

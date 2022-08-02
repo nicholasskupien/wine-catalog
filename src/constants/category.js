@@ -18,19 +18,19 @@
 
 // CHANGED: var to const
 export const CATEGORY_LABELS = {
-    // ALL must appear first in this list to be selected by default
-    "ALL": "All",
-    "RED": "Red Wine",
-    "WHITE": "White Wine",
-    "ROSE": "Rosé Wine",
-    "CHAMPAGNE": "Champagne",
-    "SPARKLING": "Sparkling Wine",
-    "DESSERT": "Dessert Wine",
-    "ICEWINE": "Icewine",
-    "FORTIFIED": "Fortified Wines",
-    "SPECIALTY": "Specialty Wines"
+  // ALL must appear first in this list to be selected by default
+  ALL: "All",
+  RED: "Red Wine",
+  WHITE: "White Wine",
+  ROSE: "Rosé Wine",
+  CHAMPAGNE: "Champagne",
+  SPARKLING: "Sparkling Wine",
+  DESSERT: "Dessert Wine",
+  ICEWINE: "Icewine",
+  FORTIFIED: "Fortified Wines",
+  SPECIALTY: "Specialty Wines",
 };
 
-export const ALL_CATEGORY = "ALL"
+export const ALL_CATEGORY = "ALL";
 
 export const DEFAULT_CATEGORY = ALL_CATEGORY;
