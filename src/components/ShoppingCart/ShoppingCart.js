@@ -79,11 +79,11 @@ function ShoppingCart() {
         {/* headers */}
         <thead>
           <tr>
-            <th></th>
-            <th>QTY</th>
+            <th style={{ width: "1%" }}></th>
+            <th style={{ width: "5%" }}>QTY</th>
             <th style={{ textAlign: "left" }}>Description</th>
-            <th>Unit Price</th>
-            <th>Amount</th>
+            <th style={{ width: "15%" }}>Unit Price</th>
+            <th style={{ width: "15%" }}>Amount</th>
           </tr>
         </thead>
         {/* table body */}
