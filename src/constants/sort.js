@@ -29,6 +29,11 @@ export const DEFAULT_SORT = {
 };
 
 /**
+ * Array.sort() compare function. Text based sort, for sorting two strings.
+ * sorts ascending or descending based on parameters.
+ *
+ * Usage: array.sort((a, b) => sortStrings(a,b,sortDirection));
+ *
  * @function sortStrings Case-insensitive sort
  * @param a {String} first item to sort
  * @param b {String} second item to sort
@@ -45,7 +50,12 @@ export function sortStrings(a, b, direction) {
 }
 
 /**
- * @function sortStrings numeric sort, ignoring any text that is not a digit
+ * Array.sort() compare function. numeric sort, ignoring any text that is not a digit.
+ * sorts ascending or descending based on parameters.
+ *
+ * Usage: array.sort((a, b) => sortNumbers(a,b,sortDirection));
+ *
+ * @function sortStrings
  * @param a {String} first item to sort
  * @param b {String} second item to sort
  * @param direction {String} direction to sort. "ASC" for ascending or anything else for descending.

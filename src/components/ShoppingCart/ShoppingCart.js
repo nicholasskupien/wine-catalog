@@ -21,6 +21,9 @@ function ShoppingCart() {
   // create an 'aggregated' cart with totals for quantity and cost based off the cart state
   // TODO make this a part of this component's state
   if (cart.length >= 1) {
+    totalCartPrice = 0;
+    cartAggregated = [];
+
     // cartAggregated = cart.reduce((a, b) =>
     //     a.set(b.id, (a.get(b.id) || 0) + 1), new Map);
 

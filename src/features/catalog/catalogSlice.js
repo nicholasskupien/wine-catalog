@@ -48,50 +48,34 @@ export const catalogSlice = createSlice({
       switch (action.payload.sortBy) {
         // TODO use SORT_BY enums for the switch statement
         case "NAME":
-          state.catalog = state.catalog.sort((a, b) => {
-            return sortStrings(a.name, b.name, action.payload.sortDirection);
-          });
+          state.catalog = state.catalog.sort((a, b) =>
+            sortStrings(a.name, b.name, action.payload.sortDirection)
+          );
           break;
         case "CATEGORY":
-          state.catalog = state.catalog.sort((a, b) => {
-            return sortStrings(
-              a.category,
-              b.category,
-              action.payload.sortDirection
-            );
-          });
+          state.catalog = state.catalog.sort((a, b) =>
+            sortStrings(a.category, b.category, action.payload.sortDirection)
+          );
           break;
         case "VOLUME":
-          state.catalog = state.catalog.sort((a, b) => {
-            return sortNumbers(
-              a.volume,
-              b.volume,
-              action.payload.sortDirection
-            );
-          });
+          state.catalog = state.catalog.sort((a, b) =>
+            sortNumbers(a.volume, b.volume, action.payload.sortDirection)
+          );
           break;
         case "PRICE":
-          state.catalog = state.catalog.sort((a, b) => {
-            return sortNumbers(a.price, b.price, action.payload.sortDirection);
-          });
+          state.catalog = state.catalog.sort((a, b) =>
+            sortNumbers(a.price, b.price, action.payload.sortDirection)
+          );
           break;
         case "COUNTRY":
-          state.catalog = state.catalog.sort((a, b) => {
-            return sortStrings(
-              a.country,
-              b.country,
-              action.payload.sortDirection
-            );
-          });
+          state.catalog = state.catalog.sort((a, b) =>
+            sortStrings(a.country, b.country, action.payload.sortDirection)
+          );
           break;
         case "PRODUCER":
-          state.catalog = state.catalog.sort((a, b) => {
-            return sortStrings(
-              a.producer,
-              b.producer,
-              action.payload.sortDirection
-            );
-          });
+          state.catalog = state.catalog.sort((a, b) =>
+            sortStrings(a.producer, b.producer, action.payload.sortDirection)
+          );
           break;
         default:
         //do nothing, no sort provided

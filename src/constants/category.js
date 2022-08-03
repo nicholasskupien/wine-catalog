@@ -16,9 +16,7 @@
 
 // TODO create category state enum and include below
 
-// CHANGED: var to const
 export const CATEGORY_LABELS = {
-  // ALL must appear first in this list to be selected by default
   ALL: "All",
   RED: "Red Wine",
   WHITE: "White Wine",

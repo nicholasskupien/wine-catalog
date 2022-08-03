@@ -21,6 +21,10 @@ export const shoppingCartSlice = createSlice({
     // eslint-disable-next-line no-unused-vars
     removeFromCart: (state, action) => {
       // TODO Impliment remove from cart
+      // eslint-disable-next-line no-unused-vars
+      state.cart = state.cart.filter(
+        (cartItem) => cartItem.id !== action.payload
+      );
     },
   },
 });
