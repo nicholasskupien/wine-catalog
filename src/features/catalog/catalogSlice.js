@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import catalogListJson from "../../constants/catalog";
-import { ALL_CATEGORY, DEFAULT_CATEGORY } from "../../constants/category";
+import {
+  ALL_CATEGORY,
+  CATEGORY_STATE_LABELS,
+  DEFAULT_CATEGORY,
+} from "../../constants/category";
 import {
   DEFAULT_SORT,
   sortStrings,
@@ -50,8 +54,6 @@ export const catalogSlice = createSlice({
     sort: (state, action) => {
       console.log(action.payload.sortBy);
 
-      console.log(SORT_STATE.NAME);
-
       switch (action.payload.sortBy) {
         // TODO use SORT_BY enums for the switch statement
         case SORT_STATE.NAME:
@@ -61,7 +63,11 @@ export const catalogSlice = createSlice({
           break;
         case SORT_STATE.CATEGORY:
           state.catalog = state.catalog.sort((a, b) =>
-            sortStrings(a.category, b.category, action.payload.sortDirection)
+            sortStrings(
+              CATEGORY_STATE_LABELS[a.category],
+              CATEGORY_STATE_LABELS[b.category],
+              action.payload.sortDirection
+            )
           );
           break;
         case SORT_STATE.VOLUME:
@@ -100,7 +106,7 @@ export const catalogSlice = createSlice({
 
         // if the filtered catalog matches the wine in the catalog then don't hide the wine item
         // OR if the current category is the 'All Category' then regardless we show everything
-        console.log(action.payload, catalog.category);
+        // console.log(action.payload, catalog.category);
         if (
           catalog.category === state.selectedCategory ||
           state.selectedCategory === ALL_CATEGORY

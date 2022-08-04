@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import Categories from "../form/Categories/Categories";
 import Dropdown from "../form/Dropdown/Dropdown";
@@ -28,8 +27,8 @@ function LeftNavigation() {
     dispatch(setCategory(newSelectedCategory));
 
   // Get category labels (enums) from file
-  const categories = Object.keys(CATEGORY_STATE);
-  const categoryLabels = Object.entries(CATEGORY_STATE_LABELS);
+  // const categories = Object.keys(CATEGORY_STATE);
+  // const categoryLabels = Object.entries(CATEGORY_STATE_LABELS);
 
   // Use redux to get the selected category. This will update
   const selectedCategory = useSelector(
@@ -39,12 +38,14 @@ function LeftNavigation() {
   // Change handler to send sort selection to redux store when it is changed
   const onSortChange = (newSortCategory) => dispatch(sort(newSortCategory));
   // Grab the sort enums
-  const sortState = Object.entries(CATEGORY_STATE);
-  const sortDirection = Object.entries(SORT_DIRECTION);
+  // const sortState = Object.entries(CATEGORY_STATE);
+  // const sortDirection = Object.entries(SORT_DIRECTION);
 
+  // create dropdown items and payloads to send once selected
   const dropdownItems = [];
   const dropdownPayloads = [];
 
+  // populate dropdown items and payloads
   Object.keys(SORT_STATE).forEach((sortBy) =>
     Object.keys(SORT_DIRECTION).forEach((sortDirection) => {
       // For each sort item, create a select option for up and down sort directions
