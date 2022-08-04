@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Categories from "../form/Categories/Categories";
 import Dropdown from "../form/Dropdown/Dropdown";
@@ -7,8 +8,16 @@ import Logo from "../branding/Logo/Logo";
 import "./LeftNavigation.scss";
 import { setCategory, search, sort } from "../../features/catalog/catalogSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { CATEGORY_LABELS } from "../../constants/category";
-import { SORT_BY, SORT_DIR } from "../../constants/sort";
+import {
+  CATEGORY_STATE,
+  CATEGORY_STATE_LABELS,
+} from "../../constants/category";
+import {
+  SORT_STATE,
+  SORT_DIRECTION,
+  SORT_STATE_LABELS,
+  SORT_DIRECTION_LABELS,
+} from "../../constants/sort";
 
 // Filters, Search Bar, Sort, Logo
 function LeftNavigation() {
@@ -17,8 +26,11 @@ function LeftNavigation() {
   // Change handler to send new selected category to redux store when they are changed
   const onCategoryChange = (newSelectedCategory) =>
     dispatch(setCategory(newSelectedCategory));
+
   // Get category labels (enums) from file
-  const categories = Object.entries(CATEGORY_LABELS);
+  const categories = Object.keys(CATEGORY_STATE);
+  const categoryLabels = Object.entries(CATEGORY_STATE_LABELS);
+
   // Use redux to get the selected category. This will update
   const selectedCategory = useSelector(
     (state) => state.catalog.selectedCategory
@@ -27,23 +39,31 @@ function LeftNavigation() {
   // Change handler to send sort selection to redux store when it is changed
   const onSortChange = (newSortCategory) => dispatch(sort(newSortCategory));
   // Grab the sort enums
-  const sortBy = Object.entries(SORT_BY);
-  const sortDirection = Object.entries(SORT_DIR);
-  // For each sort item, create a select option for up and down sort directions
-  const dropdownItems = sortBy
-    .map((sortBy) =>
-      sortDirection.map((sortDirection) => sortBy[1] + " " + sortDirection[1])
-    )
-    .flat();
-  // For each sort item, create key value pairs for the paramater to sort by and the direction to sort by
-  const dropdownPayloads = sortBy
-    .map((sortBy) =>
-      sortDirection.map((sortDirection) => ({
-        sortBy: sortBy[0],
-        sortDirection: sortDirection[0],
-      }))
-    )
-    .flat();
+  const sortState = Object.entries(CATEGORY_STATE);
+  const sortDirection = Object.entries(SORT_DIRECTION);
+
+  const dropdownItems = [];
+  const dropdownPayloads = [];
+
+  Object.keys(SORT_STATE).forEach((sortBy) =>
+    Object.keys(SORT_DIRECTION).forEach((sortDirection) => {
+      // For each sort item, create a select option for up and down sort directions
+      const dropdownItem =
+        SORT_STATE_LABELS[SORT_STATE[sortBy]] +
+        " " +
+        SORT_DIRECTION_LABELS[SORT_DIRECTION[sortDirection]];
+
+      // For each sort item, create key value pairs for the paramater to sort by and the direction to sort by
+      const dropdownPayload = {
+        sortBy: SORT_STATE[sortBy],
+        sortDirection: SORT_DIRECTION[sortDirection],
+      };
+
+      dropdownItems.push(dropdownItem);
+      dropdownPayloads.push(dropdownPayload);
+    })
+  );
+
   // console.log(dropdownItems);
   // console.log(dropdownPayloads);
 
@@ -72,7 +92,8 @@ function LeftNavigation() {
           <div className="form-wrapper"></div>
           <Label label={"category"}></Label>
           <Categories
-            categories={categories}
+            categories={CATEGORY_STATE}
+            categoryLabels={CATEGORY_STATE_LABELS}
             selected={selectedCategory}
             onCategoryChange={onCategoryChange}
           ></Categories>

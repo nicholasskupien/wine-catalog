@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import catalogListJson from "../../constants/catalog";
 import { ALL_CATEGORY, DEFAULT_CATEGORY } from "../../constants/category";
-import { DEFAULT_SORT, sortStrings, sortNumbers } from "../../constants/sort";
+import {
+  DEFAULT_SORT,
+  sortStrings,
+  sortNumbers,
+  SORT_STATE,
+} from "../../constants/sort";
 
 // Redux Toolkit allows us to write "mutating" logic in reducers. It
 // doesn't actually mutate the state because it uses the Immer library,
@@ -43,36 +48,38 @@ export const catalogSlice = createSlice({
     // action.payload.sortDirection: SORT_DIR contains the allowed inputs
     // action.payload.sortBy: SORT_BY contains the allowed inputs
     sort: (state, action) => {
-      console.log(action);
+      console.log(action.payload.sortBy);
+
+      console.log(SORT_STATE.NAME);
 
       switch (action.payload.sortBy) {
         // TODO use SORT_BY enums for the switch statement
-        case "NAME":
+        case SORT_STATE.NAME:
           state.catalog = state.catalog.sort((a, b) =>
             sortStrings(a.name, b.name, action.payload.sortDirection)
           );
           break;
-        case "CATEGORY":
+        case SORT_STATE.CATEGORY:
           state.catalog = state.catalog.sort((a, b) =>
             sortStrings(a.category, b.category, action.payload.sortDirection)
           );
           break;
-        case "VOLUME":
+        case SORT_STATE.VOLUME:
           state.catalog = state.catalog.sort((a, b) =>
             sortNumbers(a.volume, b.volume, action.payload.sortDirection)
           );
           break;
-        case "PRICE":
+        case SORT_STATE.PRICE:
           state.catalog = state.catalog.sort((a, b) =>
             sortNumbers(a.price, b.price, action.payload.sortDirection)
           );
           break;
-        case "COUNTRY":
+        case SORT_STATE.COUNTRY:
           state.catalog = state.catalog.sort((a, b) =>
             sortStrings(a.country, b.country, action.payload.sortDirection)
           );
           break;
-        case "PRODUCER":
+        case SORT_STATE.PRODUCER:
           state.catalog = state.catalog.sort((a, b) =>
             sortStrings(a.producer, b.producer, action.payload.sortDirection)
           );
@@ -93,6 +100,7 @@ export const catalogSlice = createSlice({
 
         // if the filtered catalog matches the wine in the catalog then don't hide the wine item
         // OR if the current category is the 'All Category' then regardless we show everything
+        console.log(action.payload, catalog.category);
         if (
           catalog.category === state.selectedCategory ||
           state.selectedCategory === ALL_CATEGORY

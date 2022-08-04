@@ -6,29 +6,52 @@
  * to help in your implementation.
  */
 
+// TODO create category state enum and include below
+
+/**
+ * This property indicates the possible states for the categories.
+ *
+ * @property CATEGORY_STATE
+ */
+export const CATEGORY_STATE = {
+  ALL: 0,
+  RED: 1,
+  WHITE: 2,
+  ROSE: 3,
+  CHAMPAGNE: 4,
+  SPARKLING: 5,
+  DESSERT: 6,
+  ICEWINE: 7,
+  FORTIFIED: 8,
+  SPECIALTY: 9,
+};
+
 /**
  * This property indicates the English label for a given category code. This will
  * be required for rendering the categories onto the UI.
  *
- * @property CATEGORY_LABELS
- * @type {Object}
+ * @property CATEGORY_STATE_LABELS
+ * @type {object}
  */
-
-// TODO create category state enum and include below
-
-export const CATEGORY_LABELS = {
-  ALL: "All",
-  RED: "Red Wine",
-  WHITE: "White Wine",
-  ROSE: "Rosé Wine",
-  CHAMPAGNE: "Champagne",
-  SPARKLING: "Sparkling Wine",
-  DESSERT: "Dessert Wine",
-  ICEWINE: "Icewine",
-  FORTIFIED: "Fortified Wines",
-  SPECIALTY: "Specialty Wines",
+export const CATEGORY_STATE_LABELS = {
+  [CATEGORY_STATE.ALL]: "All",
+  [CATEGORY_STATE.RED]: "Red Wine",
+  [CATEGORY_STATE.WHITE]: "White Wine",
+  [CATEGORY_STATE.ROSE]: "Rosé Wine",
+  [CATEGORY_STATE.CHAMPAGNE]: "Champagne",
+  [CATEGORY_STATE.SPARKLING]: "Sparkling Wine",
+  [CATEGORY_STATE.DESSERT]: "Dessert Wine",
+  [CATEGORY_STATE.ICEWINE]: "Icewine",
+  [CATEGORY_STATE.FORTIFIED]: "Fortified Wines",
+  [CATEGORY_STATE.SPECIALTY]: "Specialty Wines",
 };
 
-export const ALL_CATEGORY = "ALL";
+/**
+ * CATEGORY_STATE which represents 'no filtering' or 'all' of the categories at once.
+ */
+export const ALL_CATEGORY = CATEGORY_STATE.ALL;
 
-export const DEFAULT_CATEGORY = ALL_CATEGORY;
+/**
+ * CATEGORY_STATE which represents the default category.
+ */
+export const DEFAULT_CATEGORY = CATEGORY_STATE.ALL;

@@ -1,4 +1,7 @@
 /* eslint-disable no-redeclare */
+
+import { CATEGORY_STATE } from "./category";
+
 /**
  * This prototypal object definition defines a generic catalog item.
  *
@@ -6,13 +9,13 @@
  * to help in your implementation.
  *
  * @class CatalogItem
- * @param id {String} The unique id for this item.
- * @param category {String} The item category.
- * @param name {String} The item name.
- * @param volume {String} The description of the item's volume.
- * @param price {String} The price of this item.
- * @param country {String} The country code for this item's origin.
- * @param producer {String} The producer of this item.
+ * @param {String} id The unique id for this item.
+ * @param {String} category The item category.
+ * @param {String} name The item name.
+ * @param {String} volume The description of the item's volume.
+ * @param {String} price The price of this item.
+ * @param {String} country The country code for this item's origin.
+ * @param {String} producer The producer of this item.
  */
 function CatalogItem(id, category, name, volume, price, country, producer) {
   // declare these as private variables
@@ -29,7 +32,7 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
     return _id;
   };
   this.getCategory = function () {
-    return _category;
+    return CATEGORY_STATE[_category];
   };
   this.getName = function () {
     return _name;
