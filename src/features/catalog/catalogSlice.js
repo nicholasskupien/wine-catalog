@@ -12,17 +12,23 @@ import {
   SORT_STATE,
 } from "../../constants/sort";
 
-// Redux Toolkit allows us to write "mutating" logic in reducers. It
-// doesn't actually mutate the state because it uses the Immer library,
-// which detects changes to a "draft state" and produces a brand new
-// immutable state based off those changes
+/**
+ * Redux store to hold catalog information using the Immer library.
+ *
+ * Note on Immer: Redux Toolkit allows us to write "mutating" logic in reducers. It
+ * doesn't actually mutate the state because it uses the Immer library,
+ * which detects changes to a "draft state" and produces a brand new
+ * immutable state based off those changes
+ */
 export const catalogSlice = createSlice({
   name: "catalog",
 
   initialState: {
-    // This is the parsed list of catalog items
-    // The list is in JSON form (key: object)
-    // Object.entries parses the JSON into a 2D array with dimensions [key, object][item]
+    /**
+     * This is the parsed list of catalog items
+     * The list is in JSON form (key: object)
+     * Object.entries parses the JSON into a 2D array with dimensions [key, object][item]
+     */
     catalog: Object.entries(catalogListJson)
       .map((catalogObject) => {
         // catalogObject[0] is the key of the catalog item
@@ -48,14 +54,15 @@ export const catalogSlice = createSlice({
   },
 
   reducers: {
-    // Sort the catalog based on the field to 'sortBy' and the 'sortDirection' to sort ascending or descending
-    // action.payload.sortDirection: SORT_DIR contains the allowed inputs
-    // action.payload.sortBy: SORT_BY contains the allowed inputs
+    /**
+     * Sort the catalog based on the field to 'sortBy' and the 'sortDirection' to sort ascending or descending
+     * @param {*} state current state
+     * @param {*} action action.payload.sortDirection: SORT_STATE contains the allowed inputs. action.payload.sortBy: SORT_DIRECTION contains the allowed inputs
+     */
     sort: (state, action) => {
       console.log(action.payload.sortBy);
 
       switch (action.payload.sortBy) {
-        // TODO use SORT_BY enums for the switch statement
         case SORT_STATE.NAME:
           state.catalog = state.catalog.sort((a, b) =>
             sortStrings(a.name, b.name, action.payload.sortDirection)
@@ -95,8 +102,11 @@ export const catalogSlice = createSlice({
       }
     },
 
-    // Set the category to filter the catalog by
-    // action.payload: CATEGORY_LABELS contains the allowed inputs
+    /**
+     * Filter the results by category. Return the catalog with flags for hiding the items
+     * @param {*} state current state
+     * @param {*} action action.payload: is a CATEGORY_STATE containing the category to filter by
+     */
     setCategory: (state, action) => {
       // console.log(state.categories);
       // console.log(state, action);
@@ -128,7 +138,11 @@ export const catalogSlice = createSlice({
       });
     },
 
-    // Search the catalog with a string
+    /**
+     * Search the catalog with a string. Return catalog with flags on items that don't match the string
+     * @param {*} state current state
+     * @param {*} action action.payload: string to search by
+     */
     search: (state, action) => {
       console.log(action.payload);
       state.catalog = state.catalog.map((catalog) => {

@@ -12,52 +12,8 @@ import React from "react";
 function ShoppingCart() {
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.cart.cart);
-
-  // TODO make these more 'private'? hidden from user
-  var totalCartPrice = 0;
-  var cartAggregated = [];
-
-  // create an 'aggregated' cart with totals for quantity and cost based off the cart state
-  // TODO make this a part of this component's state
-  if (cart.length >= 1) {
-    totalCartPrice = 0;
-    cartAggregated = [];
-
-    // cartAggregated = cart.reduce((a, b) =>
-    //     a.set(b.id, (a.get(b.id) || 0) + 1), new Map);
-
-    cart.forEach((item) => {
-      const itemIndex = cartAggregated.findIndex((i) => i.id === item.id);
-
-      // if the item added in the cart already exists in the aggregated cart then update values
-      if (itemIndex != -1) {
-        // add one to the quantity
-        cartAggregated[itemIndex].quantity += 1;
-        // add the cost of the item to the total price to maintain the running sum
-        cartAggregated[itemIndex].totalPrice +=
-          cartAggregated[itemIndex].unitPrice;
-        // console.log("updated ", cartAggregated[item.id]);
-      }
-      // if the item does not exist in the aggregated cart then create a new item with default values
-      else {
-        const newItem = {
-          id: item.id,
-          quantity: 1,
-          description: item.name,
-          unitPrice: item.price,
-          totalPrice: item.price,
-        };
-        cartAggregated.push(newItem);
-        // console.log("pushed ", newItem);
-      }
-
-      // update the total price of the cart
-      totalCartPrice += item.price;
-    });
-  }
-
-  // console.log(cartAggregated, cartAggregated.length);
+  const cartAggregated = useSelector((state) => state.cart.cartAggregated);
+  const cartTotalPrice = useSelector((state) => state.cart.cartTotalPrice);
 
   const [shoppingCartOpen, setShoppingCartOpen] = useState(0);
 
@@ -102,7 +58,8 @@ function ShoppingCart() {
               </td>
               <td>{item.quantity}</td>
               <td style={{ textAlign: "left" }}>{item.description}</td>
-              {/* round the prices to 2 decimal points. Fixes floating point precision errors */}
+              {/* round the prices to 2 decimal points. Fixes floating point precision errors. 
+              Not necessary (cart store is already rounded) but good edge case coverage*/}
               <td>{"$" + parseFloat(item.unitPrice).toFixed(2)}</td>
               <td>{"$" + parseFloat(item.totalPrice).toFixed(2)}</td>
             </tr>
@@ -112,7 +69,7 @@ function ShoppingCart() {
       <div className={styles.cartFooter}>
         <div className={styles.cartTotal}>{"Total Amount"}</div>
         <div className={styles.cartTotal}>
-          {"$" + parseFloat(totalCartPrice).toFixed(2)}
+          {"$" + parseFloat(cartTotalPrice).toFixed(2)}
         </div>
       </div>
     </div>
