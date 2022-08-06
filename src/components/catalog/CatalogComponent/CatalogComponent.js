@@ -9,6 +9,7 @@ import {
   ICON_CARET_UP,
   importAll,
 } from "../../../constants/common";
+import Price from "../../UI/Price/Price";
 // import Label from "../../UI/Label/Label";
 
 // Wine Catalog Component
@@ -25,10 +26,10 @@ function CatalogComponent(props) {
   const details = props.details.map((detail, i) => {
     // console.log(detail);
     return (
-      <React.Fragment key={i + props.item.id}>
+      <div key={i + props.item.id} className={styles.OverlayDetail}>
         <p className={styles.OverlayLabel}>{detail.label}</p>
         <p className={styles.OverlayValue}>{detail.value}</p>
-      </React.Fragment>
+      </div>
     );
   });
 
@@ -40,17 +41,20 @@ function CatalogComponent(props) {
           : styles.CatalogComponent
       }
     >
-      <button
-        className={styles.ButtonAddToCart}
-        onClick={() => props.onClick(props.item)}
-      >
-        <span>+</span>
-      </button>
-      <span className={styles.Price}>{"$" + props.item.price.toFixed(2)}</span>
-      <div
-        style={detailsOpen ? { top: "0em" } : {}}
-        className={styles.OverlayNameDetails}
-      >
+      <div className={styles.TopHeader}>
+        <button
+          className={styles.ButtonAddToCart}
+          onClick={() => props.onClick(props.item)}
+        >
+          <span>+</span>
+        </button>
+        {/* <span className={styles.Price}>{"$" + props.item.price.toFixed(2)}</span> */}
+        <Price
+          price={props.item.price}
+          style={detailsOpen ? { opacity: "0" } : {}}
+        ></Price>
+      </div>
+      <div className={styles.OverlayFooter}>
         <div className={styles.OverlayName}>
           <p className={styles.OverlayValue}>{props.item.name}</p>
           <button

@@ -1,6 +1,7 @@
 @import "../../../constants/styles/globals";
 
 $heightCatalogComponent: 27em;
+$heightNameDetailsOverlay: 7em;
 $widthCatalogComponent: 17em;
 
 .CatalogComponent {
@@ -14,13 +15,15 @@ $widthCatalogComponent: 17em;
   box-shadow: $shadow;
   filter: brightness(0.9);
   transition: filter $transition;
-}
 
-.CatalogComponent img {
-  width: 70%;
-  padding: 20% 15% 15% 15%;
-  transform: scale(0.9);
-  transition: transform $transition;
+  img {
+    width: 70%;
+    padding: 15% 15% 15% 15%;
+    transform: scale(0.9);
+    transition: transform $transition;
+    position: absolute;
+    top: 0em;
+  }
 }
 
 .CatalogComponent:hover {
@@ -31,43 +34,38 @@ $widthCatalogComponent: 17em;
   transform: scale(1);
 }
 
+.TopHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1em;
+}
+
 .ButtonAddToCart {
-  height: 4em;
-  width: 4em;
+  // height: 100%;
+  // width: 4em;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  // position: absolute;
   z-index: 1;
+
+  span {
+    font-size: 2em;
+    line-height: 70%;
+    font-weight: 900;
+    color: $gray-180;
+    cursor: pointer;
+    transition: $transition;
+    transition-delay: 0s;
+  }
+
+  .ButtonAddToCart:hover span {
+    color: $gray-80;
+  }
 }
 
-.ButtonAddToCart span {
-  font-size: 2em;
-  line-height: 100%;
-  font-weight: 900;
-  color: $gray-180;
-  cursor: pointer;
-  transition: $transition;
-  transition-delay: 0s;
-}
-
-.ButtonAddToCart:hover span {
-  color: $gray-80;
-}
-
-.Price {
-  position: absolute;
-  right: 0.8em;
-  top: 1em;
-  font-weight: 700;
-  font-size: 1.5em;
-  color: $gray-80;
-  transition: opacity $transition;
-}
-
-$heightNameDetailsOverlay: 7em;
-
-.OverlayNameDetails {
+.OverlayFooter {
   box-sizing: border-box;
   position: absolute;
   top: $heightCatalogComponent - $heightNameDetailsOverlay;
@@ -79,50 +77,56 @@ $heightNameDetailsOverlay: 7em;
 
   z-index: 1;
   transition: $transition;
+
+  hr {
+    border: 0em;
+    margin: 0em;
+    border-top: solid $width-border-small $gray-180;
+  }
+
+  .OverlayHidden {
+    padding-right: 2em;
+    opacity: 0;
+    transition: opacity $transition;
+  }
+
+  .OverlayDetail {
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+  }
+
+  // TODO make fonts into global classes
+  .OverlayValue {
+    color: white;
+    font-weight: 700;
+  }
+
+  .OverlayLabel {
+    color: $gray-200;
+    font-weight: 800;
+    margin-bottom: 0.3em;
+  }
+
+  .OverlayName {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  span {
+    color: white;
+    padding: 0.5em 0em 0.5em 1em;
+    cursor: pointer;
+  }
 }
 
-.OverlayNameDetails hr {
-  border: 0em;
-  /* 0.15em so that when scaling base font size this border scales relatively quickly */
-  border-top: solid $width-border-small $gray-180;
-}
-
-.OverlayHidden {
-  padding-right: 2em;
-  opacity: 0;
-  transition: opacity $transition;
-}
-
-// TODO make fonts into global classes
-.OverlayValue {
-  color: white;
-  font-weight: 700;
-  margin-bottom: 0.5em;
-}
-
-.OverlayLabel {
-  color: $gray-200;
-  font-weight: 800;
-  margin-bottom: 0.3em;
-  margin-top: 1em;
-}
-
-.OverlayName {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.OverlayNameDetails span {
-  color: white;
-  padding: 0.5em 0em 0.5em 1em;
-  cursor: pointer;
-}
-
+// styles when the details are open. Set opacity and position
 .DetailsOpen {
-  .OverlayNameDetails {
+  .OverlayFooter {
     background-color: rgba($gray-100, 0.75);
+    top: 0em;
   }
 
   .OverlayHidden {
@@ -136,6 +140,7 @@ $heightNameDetailsOverlay: 7em;
   .ButtonAddToCart {
     span {
       opacity: 0;
+      // delay the transition of the add to cart button when the details are opening
       transition-delay: 0.4s;
     }
   }
