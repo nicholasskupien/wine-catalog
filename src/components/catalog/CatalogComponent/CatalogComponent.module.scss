@@ -59,10 +59,10 @@ $widthCatalogComponent: 17em;
     transition: $transition;
     transition-delay: 0s;
   }
+}
 
-  .ButtonAddToCart:hover span {
-    color: $gray-80;
-  }
+.ButtonAddToCart:hover span {
+  color: $gray-80;
 }
 
 .OverlayFooter {
@@ -81,7 +81,7 @@ $widthCatalogComponent: 17em;
   hr {
     border: 0em;
     margin: 0em;
-    border-top: solid $width-border-small $gray-180;
+    border-top: solid $width-border-xsmall $gray-180;
   }
 
   .OverlayHidden {
