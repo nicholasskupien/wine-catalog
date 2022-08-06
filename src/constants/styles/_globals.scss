@@ -10,8 +10,8 @@ $gray-50: rgb(50, 50, 50);
 $blue: rgb(0, 140, 170);
 
 // Not great to use borders with em units. This will be used carefully
-$border-small-width: 0.15em;
-$border-medium-width: 0.3em;
+$width-border-small: 0.15em;
+$width-border-medium: 0.3em;
 
 // common shadow
 $shadow: rgb(0 0 0 / 50%) 0px 2px 15px 0px;

@@ -1,8 +1,10 @@
+/* eslint-disable no-undef */
 import React from "react";
 import "./CatalogContainer.scss";
 import { useSelector, useDispatch } from "react-redux";
 import CatalogComponent from "../CatalogComponent/CatalogComponent";
 import { addToCart } from "../../../features/catalog/shoppingCartSlice";
+import { SORT_STATE, SORT_STATE_LABELS } from "../../../constants/sort";
 
 // Wine Catalog Component Container
 function CatalogContainer() {
@@ -25,6 +27,9 @@ function CatalogContainer() {
             onClick={onClickAddToCart}
             key={item.id}
             item={item}
+            // details={itemDetails}
+            detailsLabels={Object.values(SORT_STATE_LABELS)}
+            nameDetail={SORT_STATE.NAME.toString()}
           ></CatalogComponent>
         )
       )}

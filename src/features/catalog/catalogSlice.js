@@ -41,6 +41,7 @@ export const catalogSlice = createSlice({
           price: catalogObject[1].getPrice(),
           country: catalogObject[1].getCountry(),
           producer: catalogObject[1].getProducer(),
+          detailsList: catalogObject[1].getDetailsList(),
           hiddenCategory: false,
           hiddenSearch: false,
         };
@@ -125,15 +126,8 @@ export const catalogSlice = createSlice({
         }
 
         return {
-          id: catalog.id,
-          category: catalog.category,
-          name: catalog.name,
-          volume: catalog.volume,
-          price: catalog.price,
-          producer: catalog.producer,
-          country: catalog.country,
+          ...catalog,
           hiddenCategory: hidden,
-          hiddenSearch: catalog.hiddenSearch,
         };
       });
     },
@@ -158,14 +152,7 @@ export const catalogSlice = createSlice({
         }
 
         return {
-          id: catalog.id,
-          category: catalog.category,
-          name: catalog.name,
-          volume: catalog.volume,
-          price: catalog.price,
-          producer: catalog.producer,
-          country: catalog.country,
-          hiddenCategory: catalog.hiddenCategory,
+          ...catalog,
           hiddenSearch: hidden,
         };
       });

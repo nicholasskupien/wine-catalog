@@ -1,6 +1,7 @@
 /* eslint-disable no-redeclare */
 
 import { CATEGORY_STATE } from "./category";
+import { SORT_STATE_LABELS } from "./sort";
 
 /**
  * This prototypal object definition defines a generic catalog item.
@@ -48,6 +49,18 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
   };
   this.getProducer = function () {
     return _producer;
+  };
+  this.getDetailsList = function () {
+    return [
+      {
+        label: SORT_STATE_LABELS.NAME,
+        value: _name,
+      },
+      {
+        label: SORT_STATE_LABELS.CATEGORY,
+        value: _category,
+      },
+    ];
   };
   /* TODO: Implement additional helpers here */
 }

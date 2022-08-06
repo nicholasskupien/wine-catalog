@@ -1,9 +1,7 @@
 @import "../../constants/styles/globals";
 
 $shopping-cart-width: 42em;
-$toggle-cart-button-width: 2.5em;
-
-$this-border-small-width: 0.08em;
+$width-toggle-cart-button: 2.5em;
 
 .shoppingCartContainer {
   width: $shopping-cart-width;
@@ -14,7 +12,7 @@ $this-border-small-width: 0.08em;
   background-color: $gray-50;
   box-shadow: $shadow,
     // Simulate border with box shadow to eliminate lots of issues with width calculations
-    $gray-80 $border-small-width 0em 0em 0em inset;
+    $gray-80 $width-border-small 0em 0em 0em inset;
 
   // Transition for opening and closing the cart
   transition: right $transition;
@@ -31,11 +29,11 @@ $this-border-small-width: 0.08em;
 }
 
 .toggleCartButton {
-  width: $toggle-cart-button-width;
-  height: $toggle-cart-button-width;
-  left: -$toggle-cart-button-width;
+  width: $width-toggle-cart-button;
+  height: $width-toggle-cart-button;
+  left: -$width-toggle-cart-button;
   position: absolute;
-  top: $toggle-cart-button-width;
+  top: $width-toggle-cart-button;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -53,7 +51,7 @@ $this-border-small-width: 0.08em;
 }
 
 .toggleCartButton span {
-  font-size: $toggle-cart-button-width;
+  font-size: $width-toggle-cart-button;
   // A needed 'hack' to vertically center the text
   line-height: 85%;
 }
@@ -63,13 +61,13 @@ $this-border-small-width: 0.08em;
   font-weight: 600;
   table-layout: fixed;
   // so that the cart 'border' is not overlapped by this element
-  margin-left: $border-small-width;
+  margin-left: $width-border-small;
 }
 
 .cartTable thead {
   background-color: $gray-80;
   font-weight: 800;
-  box-shadow: $blue 0em (-$border-medium-width) 0em 0em inset;
+  box-shadow: $blue 0em (-$width-border-medium) 0em 0em inset;
   padding-bottom: 2em;
 }
 
@@ -113,12 +111,12 @@ td {
   align-items: center;
 
   // so that the cart 'border' is not overlapped by this element
-  left: $border-small-width;
+  left: $width-border-small;
 
   bottom: 0em;
   background-color: $gray-80;
 
-  box-shadow: $blue 0em ($border-medium-width) 0em 0em inset;
+  box-shadow: $blue 0em ($width-border-medium) 0em 0em inset;
 }
 
 .cartTotal {

@@ -6,8 +6,6 @@
  * to help in your implementation.
  */
 
-// TODO create category state enum and include below
-
 /**
  * This property indicates the possible states for the categories.
  *

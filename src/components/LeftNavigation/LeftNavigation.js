@@ -2,7 +2,7 @@ import React from "react";
 import Categories from "../form/Categories/Categories";
 import Dropdown from "../form/Dropdown/Dropdown";
 import TextInput from "../form/TextInput/TextInput";
-import Label from "../form/Label/Label";
+import Label from "../UI/Label/Label";
 import Logo from "../branding/Logo/Logo";
 import "./LeftNavigation.scss";
 import { setCategory, search, sort } from "../../features/catalog/catalogSlice";
@@ -77,21 +77,21 @@ function LeftNavigation() {
       <hr></hr>
       <div className="form-container">
         <div className="form-wrapper">
-          <Label label={"search"}></Label>
+          <Label label={"search"} uppercase={true}></Label>
           <TextInput
             onChange={onSearchChange}
             placeholder={"Start typing a wine name..."}
           ></TextInput>
         </div>
         <div className="form-wrapper">
-          <Label label={"sort by"}></Label>
+          <Label label={"sort by"} uppercase={true}></Label>
           <Dropdown
             onChange={onSortChange}
             dropdownItems={dropdownItems}
             dropdownPayloads={dropdownPayloads}
           ></Dropdown>
           <div className="form-wrapper"></div>
-          <Label label={"category"}></Label>
+          <Label label={"category"} uppercase={true}></Label>
           <Categories
             categories={CATEGORY_STATE}
             categoryLabels={CATEGORY_STATE_LABELS}
