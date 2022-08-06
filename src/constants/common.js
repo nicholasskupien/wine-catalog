@@ -8,8 +8,10 @@
 /**
  * global icons/symbols in html hex format
  */
-export const ICON_LEFT_CARET = "\u25C2";
-export const ICON_RIGHT_CARET = "\u25B8";
+export const ICON_CARET_LEFT = "\u25c0";
+export const ICON_CARET_RIGHT = "\u25B6";
+export const ICON_CARET_DOWN = "\u25bc";
+export const ICON_CARET_UP = "\u25b2";
 export const ICON_CLOSE = "\u2715";
 export const ICON_ARROW_UP = "\u2191";
 export const ICON_ARROW_DOWN = "\u2193";

@@ -1,9 +1,9 @@
 import React from "react";
-import Categories from "../form/Categories/Categories";
-import Dropdown from "../form/Dropdown/Dropdown";
-import TextInput from "../form/TextInput/TextInput";
-import Label from "../UI/Label/Label";
-import Logo from "../branding/Logo/Logo";
+import Categories from "../UI/form/Categories/Categories";
+import Dropdown from "../UI/form/Dropdown/Dropdown";
+import TextInput from "../UI/form/TextInput/TextInput";
+import Label from "../UI/form/Label/Label";
+import Logo from "../UI/branding/Logo/Logo";
 import "./LeftNavigation.scss";
 import { setCategory, search, sort } from "../../features/catalog/catalogSlice";
 import { useSelector, useDispatch } from "react-redux";

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./ShoppingCart.module.scss";
 import {
-  ICON_LEFT_CARET,
-  ICON_RIGHT_CARET,
+  ICON_CARET_LEFT,
+  ICON_CARET_RIGHT,
   ICON_CLOSE,
 } from "../../constants/common";
 import { useSelector, useDispatch } from "react-redux";
@@ -26,7 +26,7 @@ function ShoppingCart() {
         onClick={() => setShoppingCartOpen(!shoppingCartOpen)}
         className={styles.toggleCartButton}
       >
-        <span>{shoppingCartOpen ? ICON_RIGHT_CARET : ICON_LEFT_CARET}</span>
+        <span>{shoppingCartOpen ? ICON_CARET_RIGHT : ICON_CARET_LEFT}</span>
       </button>
       <div className={styles.cartTitle}>Shopping Cart</div>
       <div className={styles.cartHeader}></div>

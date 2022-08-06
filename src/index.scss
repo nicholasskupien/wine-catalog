@@ -1,13 +1,14 @@
-@import './constants/styles/reset.css';
-@import './constants/styles/globals';
+@import "./constants/styles/reset.css";
+@import "./constants/styles/globals";
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // TODO make base font size 16px for better division, make all fonts 0.75em
   font-size: 12px;
 }
 
@@ -15,18 +16,32 @@ h4 {
   color: $gray-180;
   font-weight: 900;
   text-transform: capitalize;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-html,body,#root{
+html,
+body,
+#root {
   height: 100%;
 }
 
-button{
+button {
   all: unset;
+}
+
+hr {
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
 }

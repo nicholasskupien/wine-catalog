@@ -12,7 +12,6 @@ $widthCatalogComponent: 17em;
   overflow: hidden;
   border-radius: 0.3em;
   box-shadow: $shadow;
-  cursor: pointer;
   filter: brightness(0.9);
   transition: filter $transition;
 }
@@ -39,18 +38,20 @@ $widthCatalogComponent: 17em;
   align-items: center;
   justify-content: center;
   position: absolute;
+  z-index: 1;
 }
 
 .ButtonAddToCart span {
-  font-size: 2.5em;
+  font-size: 2em;
   line-height: 100%;
   font-weight: 900;
   color: $gray-180;
   cursor: pointer;
-  transition: color $transition;
+  transition: $transition;
+  transition-delay: 0s;
 }
 
-.CatalogComponent:hover .ButtonAddToCart span {
+.ButtonAddToCart:hover span {
   color: $gray-80;
 }
 
@@ -61,6 +62,7 @@ $widthCatalogComponent: 17em;
   font-weight: 700;
   font-size: 1.5em;
   color: $gray-80;
+  transition: opacity $transition;
 }
 
 $heightNameDetailsOverlay: 7em;
@@ -72,14 +74,69 @@ $heightNameDetailsOverlay: 7em;
   left: 0em;
   width: 100%;
   height: 100%;
-  padding: 1em 3em 1em 1em;
-  background-color: $gray-150;
+  padding: 1em 1em 1em 1em;
+  background-color: $gray-180;
 
   z-index: 1;
-  transition: top $transition, filter $transition;
+  transition: $transition;
 }
 
-.OverlayDetail {
+.OverlayNameDetails hr {
+  border: 0em;
+  /* 0.15em so that when scaling base font size this border scales relatively quickly */
+  border-top: solid $width-border-small $gray-180;
+}
+
+.OverlayHidden {
+  padding-right: 2em;
+  opacity: 0;
+  transition: opacity $transition;
+}
+
+// TODO make fonts into global classes
+.OverlayValue {
   color: white;
   font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.OverlayLabel {
+  color: $gray-200;
+  font-weight: 800;
+  margin-bottom: 0.3em;
+  margin-top: 1em;
+}
+
+.OverlayName {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.OverlayNameDetails span {
+  color: white;
+  padding: 0.5em 0em 0.5em 1em;
+  cursor: pointer;
+}
+
+.DetailsOpen {
+  .OverlayNameDetails {
+    background-color: rgba($gray-100, 0.75);
+  }
+
+  .OverlayHidden {
+    opacity: 1;
+  }
+
+  .Price {
+    opacity: 0;
+  }
+
+  .ButtonAddToCart {
+    span {
+      opacity: 0;
+      transition-delay: 0.4s;
+    }
+  }
 }

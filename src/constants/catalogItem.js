@@ -1,7 +1,7 @@
 /* eslint-disable no-redeclare */
 
-import { CATEGORY_STATE } from "./category";
-import { SORT_STATE_LABELS } from "./sort";
+import { CATEGORY_STATE, CATEGORY_STATE_LABELS } from "./category";
+import { SORT_STATE_LABELS, SORT_STATE } from "./sort";
 
 /**
  * This prototypal object definition defines a generic catalog item.
@@ -35,6 +35,10 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
   this.getCategory = function () {
     return CATEGORY_STATE[_category];
   };
+  this.getCategoryLabel = function () {
+    // could do CATEGORY_STATE_LABELS[this.getCategory()] but what if this.getCategory() changes?
+    return CATEGORY_STATE_LABELS[CATEGORY_STATE[_category]];
+  };
   this.getName = function () {
     return _name;
   };
@@ -50,15 +54,31 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
   this.getProducer = function () {
     return _producer;
   };
+  /**
+   * Get a list of details about this item
+   * @returns a list of objects with the detail label and the detail value
+   */
   this.getDetailsList = function () {
     return [
       {
-        label: SORT_STATE_LABELS.NAME,
-        value: _name,
+        label: SORT_STATE_LABELS[SORT_STATE.CATEGORY],
+        value: this.getCategoryLabel(),
       },
       {
-        label: SORT_STATE_LABELS.CATEGORY,
-        value: _category,
+        label: SORT_STATE_LABELS[SORT_STATE.VOLUME],
+        value: this.getVolume(),
+      },
+      {
+        label: SORT_STATE_LABELS[SORT_STATE.PRICE],
+        value: this.getPrice(),
+      },
+      {
+        label: SORT_STATE_LABELS[SORT_STATE.COUNTRY],
+        value: this.getCountry(),
+      },
+      {
+        label: SORT_STATE_LABELS[SORT_STATE.PRODUCER],
+        value: this.getProducer(),
       },
     ];
   };
