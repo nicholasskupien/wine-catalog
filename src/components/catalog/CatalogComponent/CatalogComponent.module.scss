@@ -58,8 +58,7 @@ $widthCatalogComponent: 17em;
     font-weight: 900;
     color: $gray-180;
     cursor: pointer;
-    transition: $transition;
-    transition-delay: 0s;
+    transition: color $transition;
   }
 }
 
@@ -137,13 +136,5 @@ $widthCatalogComponent: 17em;
 
   .Price {
     opacity: 0;
-  }
-
-  .ButtonAddToCart {
-    span {
-      opacity: 0;
-      // delay the transition of the add to cart button when the details are opening
-      transition-delay: 0.4s;
-    }
   }
 }
