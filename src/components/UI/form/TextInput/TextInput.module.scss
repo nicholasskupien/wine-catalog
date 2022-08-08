@@ -1,0 +1,10 @@
+@import "../../../../constants/styles/_globals.scss";
+
+.TextInput {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  border-radius: $border-radius-xsmall;
+  border: none;
+  padding: 0.4em 0.5em 0.4em 0.5em;
+}

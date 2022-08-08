@@ -1,5 +1,3 @@
-/* eslint-disable no-redeclare */
-
 import { CATEGORY_STATE, CATEGORY_STATE_LABELS } from "./category";
 import { SORT_STATE_LABELS, SORT_STATE } from "./sort";
 

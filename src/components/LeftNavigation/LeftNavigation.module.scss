@@ -1,6 +1,6 @@
 @import "../../constants/styles/globals";
 
-.left-container {
+.LeftContainer {
   width: 20em;
   height: 100%;
   background-color: $gray-85;
@@ -8,22 +8,30 @@
   /* column oriented flex for left container to scroll the filters when the screen is small */
   display: flex;
   flex-direction: column;
+
+  hr {
+    border: 0em;
+    /* 0.15em so that when scaling base font size this border scales relatively quickly */
+    border-top: solid $width-border-small $gray-75;
+    margin: 0em;
+  }
 }
 
-.left-container hr {
-  border: 0em;
-  /* 0.15em so that when scaling base font size this border scales relatively quickly */
-  border-top: solid $width-border-small $gray-75;
-  margin: 0em;
+// TODO make this into a component that fills width + height and centers content
+.LogoWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.form-container {
+.FormContainer {
   padding: 1.5em;
   /* this container will shrink due to it's parent (.left-container) flex. Scroll when it shrinks */
   overflow-y: auto;
   height: 100%;
 }
 
-.form-wrapper {
+.FormWrapper {
   margin-bottom: 1.75em;
 }

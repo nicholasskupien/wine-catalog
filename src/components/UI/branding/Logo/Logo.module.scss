@@ -1,7 +1,7 @@
 @import "../../../../constants/styles/globals";
 
-.logo-container {
-  width: 100%;
+.LogoContainer {
+  width: 12em;
   height: 12em;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
   flex-shrink: 0;
 }
 
-.logo-wrapper {
+.LogoWrapper {
   width: 4em;
   height: 4em;
   border-radius: 4em;
@@ -19,13 +19,13 @@
   justify-content: center;
   align-items: center;
   display: flex;
+
+  img {
+    width: 70%;
+  }
 }
 
-.logo-wrapper img {
-  width: 70%;
-}
-
-.logo-heading {
+.LogoHeading {
   font-weight: 900;
   color: white;
   display: inline-block;
@@ -34,7 +34,7 @@
   text-transform: uppercase;
 }
 
-.logo-subheading {
+.LogoSubheading {
   margin: none;
   margin: 0.1em 0em 0em 0em;
   text-transform: uppercase;

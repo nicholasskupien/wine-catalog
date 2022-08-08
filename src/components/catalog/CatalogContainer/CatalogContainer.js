@@ -1,11 +1,13 @@
-/* eslint-disable no-undef */
 import React from "react";
-import "./CatalogContainer.scss";
+import styles from "./CatalogContainer.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import CatalogComponent from "../CatalogComponent/CatalogComponent";
 import { addToCart } from "../../../features/catalog/shoppingCartSlice";
 
-// Wine Catalog Component Container
+/**
+ * Container for wine catalog
+ * @returns JSX
+ */
 function CatalogContainer() {
   const dispatch = useDispatch();
 
@@ -16,17 +18,16 @@ function CatalogContainer() {
   const onClickAddToCart = (itemToAdd) => dispatch(addToCart(itemToAdd));
 
   return (
-    <div className="center-container">
+    <div className={styles.CenterContainer}>
       {catalog.map((item) =>
         // If there is a hidden flag set (from category filtering or search) on the item then do not render that item
         item.hiddenCategory || item.hiddenSearch ? (
           ""
         ) : (
           <CatalogComponent
-            onClick={onClickAddToCart}
+            onClickAddToCart={onClickAddToCart}
             key={item.id}
             item={item}
-            details={item.detailsList}
           ></CatalogComponent>
         )
       )}

@@ -9,12 +9,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../../features/catalog/shoppingCartSlice";
 import React from "react";
 
+/**
+ * Container/Component for the shopping cart
+ * @returns JSX
+ */
 function ShoppingCart() {
+  // use with redux
   const dispatch = useDispatch();
 
+  // redux state for the cart
   const cartAggregated = useSelector((state) => state.cart.cartAggregated);
   const cartTotalPrice = useSelector((state) => state.cart.cartTotalPrice);
 
+  // local state for when the cart is open/closed
   const [shoppingCartOpen, setShoppingCartOpen] = useState(0);
 
   return (
@@ -47,9 +54,9 @@ function ShoppingCart() {
           {/* loop through aggregated cart and generate the table */}
           {cartAggregated.map((item) => (
             <tr key={item.id}>
-              {/* Just noticed the validate dom nesting here */}
               <td style={{ fontWeight: "900" }}>
                 <a
+                  // remove the item from the cart in the redux store
                   onClick={() => dispatch(removeFromCart(item.id))}
                   className={styles.cartRemove}
                 >

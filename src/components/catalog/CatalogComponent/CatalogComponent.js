@@ -1,7 +1,5 @@
-// TODO work on props validation
-/* eslint-disable react/prop-types */
-
 import React from "react";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./CatalogComponent.module.scss";
 import {
@@ -10,21 +8,23 @@ import {
   importAll,
 } from "../../../constants/common";
 import Price from "../../UI/Price/Price";
-// import Label from "../../UI/Label/Label";
 
-// Wine Catalog Component
+/**
+ * Component for wine catalog. Each component is an item displayed in the catalog.
+ * @param {} props.item Item to display in the catalog. List of required fields in proptypes
+ * @returns
+ */
 function CatalogComponent(props) {
-  //Import all images from the folder
+  // import all images from the folder
   const images = importAll(
     require.context("../../../assets/images/catalog", false, /\.png/)
   );
 
-  console.log(props.details);
-
+  // local state for when the details are open/closed
   const [detailsOpen, setDetailsOpen] = useState(0);
 
-  const details = props.details.map((detail, i) => {
-    // console.log(detail);
+  // for each detail to show on the catalog item create necissary html
+  const details = props.item.detailsList.map((detail, i) => {
     return (
       <div key={i + props.item.id} className={styles.OverlayDetail}>
         <p className={styles.OverlayLabel}>{detail.label}</p>
@@ -36,6 +36,7 @@ function CatalogComponent(props) {
   return (
     <div
       className={
+        // set classname on entire catalog component when details are open (for animations and behaviour)
         detailsOpen
           ? `${styles.DetailsOpen} ${styles.CatalogComponent}`
           : styles.CatalogComponent
@@ -44,11 +45,11 @@ function CatalogComponent(props) {
       <div className={styles.TopHeader}>
         <button
           className={styles.ButtonAddToCart}
-          onClick={() => props.onClick(props.item)}
+          onClick={() => props.onClickAddToCart(props.item)}
         >
           <span>+</span>
         </button>
-        {/* <span className={styles.Price}>{"$" + props.item.price.toFixed(2)}</span> */}
+
         <Price
           price={props.item.price}
           style={detailsOpen ? { opacity: "0" } : {}}
@@ -57,6 +58,7 @@ function CatalogComponent(props) {
       <div className={styles.OverlayFooter}>
         <div className={styles.OverlayName}>
           <p className={styles.OverlayValue}>{props.item.name}</p>
+
           <button
             className={styles.OverlayButton}
             onClick={() => setDetailsOpen(!detailsOpen)}
@@ -66,6 +68,7 @@ function CatalogComponent(props) {
         </div>
         <div className={styles.OverlayHidden}>
           <hr></hr>
+          {/* put the details html in the hidden section of the catalog item */}
           {details}
         </div>
       </div>
@@ -74,5 +77,21 @@ function CatalogComponent(props) {
     </div>
   );
 }
+
+CatalogComponent.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    category: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    volume: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    country: PropTypes.string.isRequired,
+    producer: PropTypes.string.isRequired,
+    detailsList: PropTypes.arrayOf(PropTypes.object),
+    hiddenCategory: PropTypes.bool,
+    hiddenSearch: PropTypes.bool,
+  }),
+  onClickAddToCart: PropTypes.func,
+};
 
 export default CatalogComponent;
