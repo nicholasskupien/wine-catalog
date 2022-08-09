@@ -61,7 +61,7 @@ export const catalogSlice = createSlice({
      * @param {*} action action.payload.sortDirection: SORT_STATE contains the allowed inputs. action.payload.sortBy: SORT_DIRECTION contains the allowed inputs
      */
     sort: (state, action) => {
-      console.log(action.payload.sortBy);
+      // console.log(action.payload.sortBy);
 
       switch (action.payload.sortBy) {
         case SORT_STATE.NAME:

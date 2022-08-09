@@ -33,6 +33,10 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
   this.getCategory = function () {
     return CATEGORY_STATE[_category];
   };
+  /**
+   * Get the category label
+   * @returns Category in localized text instead of enum
+   */
   this.getCategoryLabel = function () {
     // could do CATEGORY_STATE_LABELS[this.getCategory()] but what if this.getCategory() changes?
     return CATEGORY_STATE_LABELS[CATEGORY_STATE[_category]];
@@ -46,6 +50,13 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
   this.getPrice = function () {
     return parseFloat(_price.slice(1));
   };
+  /**
+   * Get a formatted string to represent the price
+   * @returns Price with string style "$#.##"
+   */
+  this.getPriceString = function () {
+    return "$" + this.getPrice().toFixed(2);
+  };
   this.getCountry = function () {
     return _country;
   };
@@ -53,8 +64,10 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
     return _producer;
   };
   /**
-   * Get a list of details about this item
-   * @returns a list of objects with the detail label and the detail value
+   * Get a list of details about this catalog item.
+   * These are displayed when viewing the detail state.
+   * Add any additional details that may be useful to show.
+   * @returns a list of objects with the detail label and value
    */
   this.getDetailsList = function () {
     return [
@@ -68,7 +81,7 @@ function CatalogItem(id, category, name, volume, price, country, producer) {
       },
       {
         label: SORT_STATE_LABELS[SORT_STATE.PRICE],
-        value: this.getPrice(),
+        value: this.getPriceString(),
       },
       {
         label: SORT_STATE_LABELS[SORT_STATE.COUNTRY],

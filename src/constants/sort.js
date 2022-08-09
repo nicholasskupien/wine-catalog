@@ -94,9 +94,9 @@ export function sortStrings(a, b, direction) {
  * @param {String} direction direction to sort. "ASC" for ascending or anything else for descending.
  */
 export function sortNumbers(a, b, direction) {
-  // regex match on digits (0-9) and ignore everything else
-  a = parseFloat(a.toString().replace(/[A-Za-z_$]/g, "")); // try \s for regex
-  b = parseFloat(b.toString().replace(/[A-Za-z_$]/g, ""));
+  // parsefloat will remove all non numeric characters and only accept the first number it finds
+  a = parseFloat(a);
+  b = parseFloat(b);
 
   // console.log(a,b);
 
