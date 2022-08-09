@@ -12,7 +12,7 @@ import Price from "../../UI/Price/Price";
 /**
  * Component for wine catalog. Each component is an item displayed in the catalog.
  * @param {} props.item Item to display in the catalog. List of required fields in proptypes
- * @returns
+ * @returns JSX
  */
 function CatalogComponent(props) {
   // import all images from the folder
@@ -23,7 +23,7 @@ function CatalogComponent(props) {
   // local state for when the details are open/closed
   const [detailsOpen, setDetailsOpen] = useState(0);
 
-  // for each detail to show on the catalog item create necissary html
+  // for each detail to show on the catalog item create necissary jsx
   const details = props.item.detailsList.map((detail, i) => {
     return (
       <div key={i + props.item.id} className={styles.OverlayDetail}>
@@ -42,6 +42,7 @@ function CatalogComponent(props) {
           : styles.CatalogComponent
       }
     >
+      {/* top header: add to cart button and price */}
       <div className={styles.TopHeader}>
         <button
           className={styles.ButtonAddToCart}
@@ -52,9 +53,11 @@ function CatalogComponent(props) {
 
         <Price
           price={props.item.price}
+          // hide price when details are open
           style={detailsOpen ? { opacity: "0" } : {}}
         ></Price>
       </div>
+      {/* overlay footer: name, caret to open/close detail state, details */}
       <div className={styles.OverlayFooter}>
         <div className={styles.OverlayName}>
           <p className={styles.OverlayValue}>{props.item.name}</p>
@@ -66,12 +69,14 @@ function CatalogComponent(props) {
             <span>{detailsOpen ? ICON_CARET_DOWN : ICON_CARET_UP}</span>
           </button>
         </div>
+        {/* hidden section, details state */}
         <div className={styles.OverlayHidden}>
           <hr></hr>
-          {/* put the details html in the hidden section of the catalog item */}
+          {/* put the details jsx in the hidden section of the catalog item */}
           {details}
         </div>
       </div>
+      {/* background image */}
       {/* load image with file name equal to item id */}
       <img src={images[props.item.id + ".png"]}></img>
     </div>

@@ -9,11 +9,13 @@ import logo from "../../../../assets/images/wine.png";
 function Logo() {
   return (
     <div className={styles.LogoContainer}>
+      {/* circle with logo in the center */}
       <div className={styles.LogoWrapper}>
         <img src={logo} alt="logo"></img>
       </div>
-      <p className={styles.LogoHeading}>WINE</p>
-      <p className={styles.LogoSubheading}>Catalog</p>
+      {/* WINE CATALOG text */}
+      <p className={styles.LogoHeading}>{"WINE"}</p>
+      <p className={styles.LogoSubheading}>{"Catalog"}</p>
     </div>
   );
 }

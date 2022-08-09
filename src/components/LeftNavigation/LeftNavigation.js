@@ -24,19 +24,19 @@ import {
  * @returns JSX
  */
 function LeftNavigation() {
-  // Use with redux
+  // use with redux
   const dispatch = useDispatch();
 
-  // Change handler to send new selected category to redux store when they are changed
+  // change handler to send new selected category to redux store when they are changed
   const onCategoryChange = (newSelectedCategory) =>
     dispatch(setCategory(newSelectedCategory));
 
-  // Use redux to get the selected category. This will update when onSortChange is called
+  // use redux to get the selected category. This will update when onSortChange is called
   const selectedCategory = useSelector(
     (state) => state.catalog.selectedCategory
   );
 
-  // Change handler to send sort selection to redux store when it is changed
+  // change handler to send sort selection to redux store when it is changed
   const onSortChange = (newSortCategory) => dispatch(sort(newSortCategory));
 
   // create dropdown items and payloads to send once selected
@@ -46,13 +46,13 @@ function LeftNavigation() {
   // populate dropdown items and payloads using sort enums
   Object.keys(SORT_STATE).forEach((sortBy) =>
     Object.keys(SORT_DIRECTION).forEach((sortDirection) => {
-      // For each sort item, create a select option for up and down sort directions
+      // for each sort item, create a select option for up and down sort directions
       const dropdownItem =
         SORT_STATE_LABELS[SORT_STATE[sortBy]] +
         " " +
         SORT_DIRECTION_LABELS[SORT_DIRECTION[sortDirection]];
 
-      // For each sort item, create key value pairs for the paramater to sort by and the direction to sort by
+      // for each sort item, create key value pairs for the paramater to sort by and the direction to sort by
       const dropdownPayload = {
         sortBy: SORT_STATE[sortBy],
         sortDirection: SORT_DIRECTION[sortDirection],
@@ -66,16 +66,18 @@ function LeftNavigation() {
   // console.log(dropdownItems);
   // console.log(dropdownPayloads);
 
-  // Change handler to send search input to redux store when it is changed
+  // change handler to send search input to redux store when it is changed
   const onSearchChange = (newSearch) => dispatch(search(newSearch));
 
   return (
     <div className={styles.LeftContainer}>
+      {/* add the logo at the top */}
       <div className={styles.LogoWrapper}>
         <Logo></Logo>
       </div>
       <hr></hr>
       <div className={styles.FormContainer}>
+        {/* search bar and label */}
         <div className={styles.FormWrapper}>
           <Label label={"search"} uppercase={true}></Label>
           <TextInput
@@ -83,6 +85,7 @@ function LeftNavigation() {
             placeholder={"Start typing a wine name..."}
           ></TextInput>
         </div>
+        {/* sorting dropdown */}
         <div className={styles.FormWrapper}>
           <Label label={"sort by"} uppercase={true}></Label>
           <Dropdown
@@ -90,7 +93,9 @@ function LeftNavigation() {
             dropdownItems={dropdownItems}
             dropdownPayloads={dropdownPayloads}
           ></Dropdown>
-          <div className={styles.FormWrapper}></div>
+        </div>
+        {/* category selector */}
+        <div className={styles.FormWrapper}>
           <Label label={"category"} uppercase={true}></Label>
           <Categories
             categories={CATEGORY_STATE}

@@ -13,6 +13,7 @@ import styles from "./Categories.module.scss";
 function Categories(props) {
   return (
     <React.Fragment>
+      {/* map through the categories and create a button toggle for each one */}
       {Object.keys(props.categories).map((category, index) => (
         // category contains one value of the categories object
         // can index the props.categoryLabels object with this value
@@ -25,6 +26,7 @@ function Categories(props) {
               : `${styles.formCategory} ${styles.formCategoryDeselected}`
           }
         >
+          {/* get the button label from props.categoryLabels*/}
           {props.categoryLabels[props.categories[category]]}
         </button>
       ))}

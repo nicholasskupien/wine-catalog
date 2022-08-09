@@ -26,32 +26,36 @@ function ShoppingCart() {
 
   return (
     <div
+      // set position of the cart based on if it is open or not
       style={shoppingCartOpen ? { right: "0em" } : {}}
       className={styles.shoppingCartContainer}
     >
+      {/* button to toggle cart open/close */}
       <button
         onClick={() => setShoppingCartOpen(!shoppingCartOpen)}
         className={styles.toggleCartButton}
       >
         <span>{shoppingCartOpen ? ICON_CARET_RIGHT : ICON_CARET_LEFT}</span>
       </button>
-      <div className={styles.cartTitle}>Shopping Cart</div>
-      <div className={styles.cartHeader}></div>
+      {/* shopping cart header */}
+      <div className={styles.cartHeader}>
+        <div className={styles.cartTitle}>{"Shopping Cart"}</div>
+      </div>
       {/* shopping cart table */}
       <table className={styles.cartTable}>
-        {/* headers */}
+        {/* table headers */}
         <thead>
           <tr>
             <th style={{ width: "1%" }}></th>
-            <th style={{ width: "5%" }}>QTY</th>
-            <th style={{ textAlign: "left" }}>Description</th>
-            <th style={{ width: "15%" }}>Unit Price</th>
-            <th style={{ width: "15%" }}>Amount</th>
+            <th style={{ width: "5%" }}>{"QTY"}</th>
+            <th style={{ textAlign: "left" }}>{"Description"}</th>
+            <th style={{ width: "15%" }}>{"Unit Price"}</th>
+            <th style={{ width: "15%" }}>{"Amount"}</th>
           </tr>
         </thead>
         {/* table body */}
         <tbody>
-          {/* loop through aggregated cart and generate the table */}
+          {/* loop through aggregated cart and generate the table body */}
           {cartAggregated.map((item) => (
             <tr key={item.id}>
               <td style={{ fontWeight: "900" }}>
@@ -73,6 +77,7 @@ function ShoppingCart() {
           ))}
         </tbody>
       </table>
+      {/* section at the bottom of the cart for totals */}
       <div className={styles.cartFooter}>
         <div className={styles.cartTotal}>{"Total Amount"}</div>
         <div className={styles.cartTotal}>

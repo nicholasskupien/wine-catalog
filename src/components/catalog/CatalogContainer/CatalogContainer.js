@@ -19,8 +19,9 @@ function CatalogContainer() {
 
   return (
     <div className={styles.CenterContainer}>
+      {/* map through each item from the catalog redux store and create a component for it */}
       {catalog.map((item) =>
-        // If there is a hidden flag set (from category filtering or search) on the item then do not render that item
+        // if there is a hidden flag set (from category filtering or search) on the item then do not create it
         item.hiddenCategory || item.hiddenSearch ? (
           ""
         ) : (

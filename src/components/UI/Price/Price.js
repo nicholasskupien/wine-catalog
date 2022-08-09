@@ -9,6 +9,7 @@ import styles from "./Price.module.scss";
  * @returns
  */
 function Price(props) {
+  // for currency display. split the props.price number into two values. section of the number before decimal point (priceSplit[0]) and section after (priceSplit[1]).
   const priceSplit = props.price.toFixed(2).split(".");
 
   return (
